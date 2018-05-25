@@ -2,14 +2,14 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using HabboHotel.GameClients;
-    using HabboHotel.Items;
+    using Game.Items;
+    using Game.Players;
     using MoreLinq;
     using Outgoing.Inventory.Furni;
 
     internal class RequestFurniInventoryEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var items = session.GetHabbo().GetInventoryComponent().GetWallAndFloor;
 

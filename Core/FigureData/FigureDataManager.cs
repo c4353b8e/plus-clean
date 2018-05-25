@@ -5,7 +5,7 @@
     using System.IO;
     using System.Linq;
     using System.Xml;
-    using HabboHotel.Users.Clothing.Parts;
+    using Game.Users.Clothing.Parts;
     using Logging;
     using Types;
 
@@ -29,22 +29,11 @@
                 "lg"
             };
 
-            Init();
+            Load();
         }
 
-        public void Init()
+        public void Load()
         {
-            if (_palettes.Count > 0)
-            {
-                _palettes.Clear();
-            }
-
-            if (_setTypes.Count > 0)
-            {
-                _setTypes.Clear();
-            }
-
-
             var projectSolutionPath = Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
 
             var xDoc = new XmlDocument();

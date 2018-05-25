@@ -1,12 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Quests
 {
     using System.Collections.Generic;
-    using HabboHotel.GameClients;
-    using HabboHotel.Quests;
+    using Game.Players;
+    using Game.Quests;
 
     public class QuestListComposer : ServerPacket
     {
-        public QuestListComposer(GameClient Session, bool Send, Dictionary<string, Quest> UserQuests)
+        public QuestListComposer(Player Session, bool Send, Dictionary<string, Quest> UserQuests)
             : base(ServerPacketHeader.QuestListMessageComposer)
         {
             WriteInteger(UserQuests.Count);
@@ -36,7 +36,7 @@
             WriteBoolean(Send);
         }
 
-        private void SerializeQuest(ServerPacket Message, GameClient Session, Quest Quest, string Category)
+        private void SerializeQuest(ServerPacket Message, Player Session, Quest Quest, string Category)
         {
             if (Message == null || Session == null)
             {

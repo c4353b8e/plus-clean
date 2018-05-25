@@ -1,10 +1,10 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Moderation
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
 
     internal class CloseIssueDefaultActionEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
         }
     }

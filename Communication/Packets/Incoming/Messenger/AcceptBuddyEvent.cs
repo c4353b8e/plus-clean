@@ -1,10 +1,10 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Messenger
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
 
     internal class AcceptBuddyEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session?.GetHabbo() == null || session.GetHabbo().GetMessenger() == null)
             {

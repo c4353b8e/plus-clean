@@ -1,12 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Catalog
 {
     using System.Collections.Generic;
-    using HabboHotel.Catalog;
-    using HabboHotel.GameClients;
+    using Game.Catalog;
+    using Game.Players;
 
     public class CatalogIndexComposer : ServerPacket
     {
-        public CatalogIndexComposer(GameClient sesion, ICollection<CatalogPage> pages)
+        public CatalogIndexComposer(Player sesion, ICollection<CatalogPage> pages)
             : base(ServerPacketHeader.CatalogIndexMessageComposer)
         {
             WriteRootIndex(sesion, pages);
@@ -52,7 +52,7 @@
             WriteString("NORMAL");
         }
 
-        public void WriteRootIndex(GameClient session, ICollection<CatalogPage> pages)
+        public void WriteRootIndex(Player session, ICollection<CatalogPage> pages)
         {
             WriteBoolean(true);
             WriteInteger(0);
@@ -91,7 +91,7 @@
             WriteInteger(treeSize);
         }
 
-        public int CalcTreeSize(GameClient Session, ICollection<CatalogPage> Pages, int ParentId)
+        public int CalcTreeSize(Player Session, ICollection<CatalogPage> Pages, int ParentId)
         {
             var i = 0;
             foreach (var Page in Pages)

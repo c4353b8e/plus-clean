@@ -24,7 +24,7 @@
             }
 
             var uptime = DateTime.Now - Program.ServerStarted;
-            var usersOnline = Program.GameContext.GetClientManager().Count;
+            var usersOnline = Program.GameContext.PlayerController.Count;
             var roomCount = Program.GameContext.GetRoomManager().Count;
 
             Console.Title = $"Plus Emulator - Users Online: {usersOnline} - Rooms Loaded: {roomCount} - Uptime: {uptime.Days} day(s), {uptime.Hours} hour(s) and {uptime.Minutes} minute(s) uptime.";

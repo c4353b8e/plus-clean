@@ -1,6 +1,6 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Rooms.Settings
 {
-    using HabboHotel.Rooms;
+    using Game.Rooms;
 
     internal class RoomSettingsDataComposer : ServerPacket
     {

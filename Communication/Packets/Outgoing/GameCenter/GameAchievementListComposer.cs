@@ -2,12 +2,12 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using HabboHotel.Achievements;
-    using HabboHotel.GameClients;
+    using Game.Achievements;
+    using Game.Players;
 
     internal class GameAchievementListComposer : ServerPacket
     {
-        public GameAchievementListComposer(GameClient Session, ICollection<Achievement> Achievements, int GameId)
+        public GameAchievementListComposer(Player Session, ICollection<Achievement> Achievements, int GameId)
             : base(ServerPacketHeader.GameAchievementListMessageComposer)
         {
             WriteInteger(GameId);

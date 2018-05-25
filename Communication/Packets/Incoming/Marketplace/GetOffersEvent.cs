@@ -4,13 +4,13 @@
     using System.Collections.Generic;
     using System.Data;
     using System.Text;
-    using HabboHotel.Catalog.Marketplace;
-    using HabboHotel.GameClients;
+    using Game.Catalog.Marketplace;
+    using Game.Players;
     using Outgoing.Marketplace;
 
     internal class GetOffersEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var minCost = packet.PopInt();
             var maxCost = packet.PopInt();

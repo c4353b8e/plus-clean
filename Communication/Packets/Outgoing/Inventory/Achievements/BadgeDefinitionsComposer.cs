@@ -1,7 +1,7 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Inventory.Achievements
 {
     using System.Collections.Generic;
-    using HabboHotel.Achievements;
+    using Game.Achievements;
 
     internal class BadgeDefinitionsComposer: ServerPacket
     {

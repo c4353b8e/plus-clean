@@ -1,6 +1,6 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Groups
 {
-    using HabboHotel.Groups;
+    using Game.Groups;
 
     internal class ManageGroupComposer : ServerPacket
     {

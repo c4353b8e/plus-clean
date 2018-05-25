@@ -6,15 +6,17 @@
     using System.Security.Permissions;
     using System.Threading;
     using Communication.ConnectionManager;
+    using Communication.Packets;
     using Communication.Rcon;
     using Core;
     using Core.Config;
+    using Core.Database;
     using Core.FigureData;
     using Core.Language;
     using Core.Logging;
     using Core.Settings;
-    using Database;
-    using HabboHotel;
+    using Game;
+    using Game.Players;
 
     public static class Program
     {
@@ -46,12 +48,20 @@
             try
             {
                 _configuration = new ConfigHandler(Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory())) + "\\Config\\config.ini");
+
                 DatabaseManager = new DatabaseManager(_configuration);
                 LanguageManager = new LanguageManager();
                 SettingsManager = new SettingsManager();
                 FigureManager = new FigureDataManager();
+
                 RconSocket = new RconSocket(_configuration["rcon.tcp.bindip"], int.Parse(_configuration["rcon.tcp.port"]), _configuration["rcon.tcp.allowedaddr"].Split(Convert.ToChar(";")));
-                GameContext = new GameContext();
+
+                GameContext = new GameContext
+                {
+                    PacketManager = new PacketManager(),
+                    PlayerController = new PlayerController()
+                };
+
                 _connectionManager = new ConnectionHandling(int.Parse(_configuration["game.tcp.port"]), int.Parse(_configuration["game.tcp.conlimit"]), int.Parse(_configuration["game.tcp.conperip"]), _configuration["game.tcp.enablenagles"].ToLower() == "true");
 
                 new ServerStatusUpdater();

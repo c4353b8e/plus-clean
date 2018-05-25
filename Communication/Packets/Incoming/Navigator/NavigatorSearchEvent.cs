@@ -1,12 +1,13 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Navigator
 {
     using System.Collections.Generic;
-    using HabboHotel.Navigator;
+    using Game.Navigator;
+    using Game.Players;
     using Outgoing.Navigator.New;
 
     internal class NavigatorSearchEvent : IPacketEvent
     {
-        public void Parse(HabboHotel.GameClients.GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var category = packet.PopString();
             var search = packet.PopString();

@@ -1,10 +1,10 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Handshake
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
 
     public class GetClientVersionEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var build = packet.PopString();
 

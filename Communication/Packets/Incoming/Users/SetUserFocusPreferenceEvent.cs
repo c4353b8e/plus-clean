@@ -1,10 +1,10 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Users
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
 
     internal class SetUserFocusPreferenceEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var focusPreference = packet.PopBoolean();
 

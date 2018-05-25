@@ -1,10 +1,10 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Inventory.Trading
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
 
     internal class TradingCancelConfirmEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null || !session.GetHabbo().InRoom)
             {

@@ -1,13 +1,13 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Moderation
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Moderation;
-    using HabboHotel.Users.Authenticator;
+    using Game.Moderation;
+    using Game.Players;
+    using Game.Users.Authenticator;
     using Utilities;
 
     internal class ModerationBanEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null || !session.GetHabbo().GetPermissions().HasRight("mod_soft_ban"))
             {
@@ -16,7 +16,7 @@
 
             var userId = packet.PopInt();
             var message = packet.PopString();
-            var length = packet.PopInt() * 3600 + UnixTimestamp.GetNow();
+            var length = packet.PopInt() * 3600 + UnixUtilities.GetNow();
             packet.PopString(); //unk1
             packet.PopString(); //unk2
             var ipBan = packet.PopBoolean();
@@ -63,7 +63,7 @@
                 Program.GameContext.GetModerationManager().BanUser(session.GetHabbo().Username, ModerationBanType.Machine, habbo.Username, message, length);
             }
 
-            var targetClient = Program.GameContext.GetClientManager().GetClientByUsername(habbo.Username);
+            var targetClient = Program.GameContext.PlayerController.GetClientByUsername(habbo.Username);
             if (targetClient != null)
             {
                 targetClient.Disconnect();

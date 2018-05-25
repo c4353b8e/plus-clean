@@ -2,12 +2,12 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using HabboHotel.GameClients;
-    using HabboHotel.Users.Badges;
+    using Game.Players;
+    using Game.Users.Badges;
 
     internal class BadgesComposer : ServerPacket
     {
-        public BadgesComposer(GameClient Session)
+        public BadgesComposer(Player Session)
             : base(ServerPacketHeader.BadgesMessageComposer)
         {
             var EquippedBadges = new List<Badge>();

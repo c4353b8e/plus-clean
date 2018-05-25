@@ -1,11 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.AI.Pets
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Rooms.AI.Pets;
 
     internal class GetPetInformationEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().InRoom)
             {

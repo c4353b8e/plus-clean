@@ -16,7 +16,7 @@
                 return false;
             }
 
-            var client = Program.GameContext.GetClientManager().GetClientByUserId(userId);
+            var client = Program.GameContext.PlayerController.GetClientByUserId(userId);
             if (client == null || client.GetHabbo() == null)
             {
                 return false;

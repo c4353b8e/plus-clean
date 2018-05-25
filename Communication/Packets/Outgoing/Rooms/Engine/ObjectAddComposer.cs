@@ -1,7 +1,7 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Rooms.Engine
 {
     using System;
-    using HabboHotel.Items;
+    using Game.Items;
     using Utilities;
 
     internal class ObjectAddComposer : ServerPacket
@@ -14,7 +14,7 @@
             WriteInteger(Item.GetX);
             WriteInteger(Item.GetY);
             WriteInteger(Item.Rotation);
-            WriteString(string.Format("{0:0.00}", TextHandling.GetString(Item.GetZ)));
+            WriteString(string.Format("{0:0.00}", StringUtilities.GetString(Item.GetZ)));
             WriteString(string.Empty);
 
             if (Item.LimitedNo > 0)

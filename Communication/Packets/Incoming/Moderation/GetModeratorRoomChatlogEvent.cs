@@ -3,14 +3,14 @@
     using System;
     using System.Collections.Generic;
     using System.Data;
-    using HabboHotel.GameClients;
-    using HabboHotel.Rooms.Chat.Logs;
-    using HabboHotel.Users.Authenticator;
+    using Game.Players;
+    using Game.Rooms.Chat.Logs;
+    using Game.Users.Authenticator;
     using Outgoing.Moderation;
 
     internal class GetModeratorRoomChatlogEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null)
             {

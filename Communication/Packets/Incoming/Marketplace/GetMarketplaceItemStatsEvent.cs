@@ -2,11 +2,12 @@
 {
     using System;
     using System.Data;
+    using Game.Players;
     using Outgoing.Marketplace;
 
     internal class GetMarketplaceItemStatsEvent : IPacketEvent
     {
-        public void Parse(HabboHotel.GameClients.GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var itemId = packet.PopInt();
             var spriteId = packet.PopInt();

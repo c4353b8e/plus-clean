@@ -2,18 +2,18 @@
 {
     using System;
     using System.Collections.Generic;
-    using HabboHotel.Catalog.Utilities;
-    using HabboHotel.GameClients;
-    using HabboHotel.Items;
-    using HabboHotel.Rooms.AI;
-    using HabboHotel.Rooms.AI.Speech;
+    using Game.Catalog.Utilities;
+    using Game.Items;
+    using Game.Players;
+    using Game.Rooms.AI;
+    using Game.Rooms.AI.Speech;
     using Outgoing.Catalog;
     using Outgoing.Inventory.Furni;
     using Utilities;
 
     internal class CheckGnomeNameEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null || !session.GetHabbo().InRoom)
             {

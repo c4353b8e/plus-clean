@@ -1,14 +1,14 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Furni.Moodlight
 {
     using System.Linq;
-    using HabboHotel.GameClients;
-    using HabboHotel.Items;
-    using HabboHotel.Items.Data.Moodlight;
+    using Game.Items;
+    using Game.Items.Data.Moodlight;
+    using Game.Players;
     using Outgoing.Rooms.Furni.Moodlight;
 
     internal class GetMoodlightConfigEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().InRoom)
             {

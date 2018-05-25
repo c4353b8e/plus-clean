@@ -3,13 +3,13 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using HabboHotel.GameClients;
-    using HabboHotel.Items;
+    using Game.Items;
+    using Game.Players;
     using Outgoing.Rooms.Notifications;
 
     internal class PlaceObjectEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null || !session.GetHabbo().InRoom)
             {

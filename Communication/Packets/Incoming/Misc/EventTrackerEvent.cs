@@ -1,10 +1,10 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Misc
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
 
     internal class EventTrackerEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
 
         }

@@ -1,12 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Groups
 {
     using System;
-    using HabboHotel.GameClients;
-    using HabboHotel.Rooms;
+    using Game.Players;
+    using Game.Rooms;
 
     internal class DeleteGroupEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!Program.GameContext.GetGroupManager().TryGetGroup(packet.PopInt(), out var group))
             {

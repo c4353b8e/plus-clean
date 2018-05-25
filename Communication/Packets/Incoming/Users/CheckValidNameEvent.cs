@@ -2,12 +2,12 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Users;
 
     internal class CheckValidNameEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             bool inUse;
             var name = packet.PopString();

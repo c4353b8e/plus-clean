@@ -1,12 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Catalog
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Rooms;
+    using Game.Players;
+    using Game.Rooms;
     using Outgoing.Catalog;
 
     internal class GetCatalogRoomPromotionEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var rooms = RoomFactory.GetRoomsDataByOwnerSortByName(session.GetHabbo().Id);
 

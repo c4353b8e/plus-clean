@@ -11,7 +11,7 @@
         public bool TryExecute(string[] parameters)
         {
             Program.GameContext.GetCatalog().Init(Program.GameContext.GetItemManager());
-            Program.GameContext.GetClientManager().SendPacket(new CatalogUpdatedComposer());
+            Program.GameContext.PlayerController.SendPacket(new CatalogUpdatedComposer());
             return true;
         }
     }

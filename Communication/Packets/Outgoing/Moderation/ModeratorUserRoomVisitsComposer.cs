@@ -1,8 +1,8 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Moderation
 {
     using System.Collections.Generic;
-    using HabboHotel.Rooms;
-    using HabboHotel.Users;
+    using Game.Rooms;
+    using Game.Users;
     using Utilities;
 
     internal class ModeratorUserRoomVisitsComposer : ServerPacket
@@ -18,8 +18,8 @@
             {
                 WriteInteger(Visit.Value.Id);
                 WriteString(Visit.Value.Name);
-                WriteInteger(UnixTimestamp.FromUnixTimestamp(Visit.Key).Hour);
-                WriteInteger(UnixTimestamp.FromUnixTimestamp(Visit.Key).Minute);
+                WriteInteger(UnixUtilities.FromUnixTimestamp(Visit.Key).Hour);
+                WriteInteger(UnixUtilities.FromUnixTimestamp(Visit.Key).Minute);
             }
         }
     }

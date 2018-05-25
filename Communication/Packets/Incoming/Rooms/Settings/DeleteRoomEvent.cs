@@ -2,12 +2,12 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using HabboHotel.GameClients;
-    using HabboHotel.Items;
+    using Game.Items;
+    using Game.Players;
 
     internal class DeleteRoomEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null)
             {
@@ -53,7 +53,7 @@
 
             foreach (var item in itemsToRemove)
             {
-                var targetClient = Program.GameContext.GetClientManager().GetClientByUserId(item.UserID);
+                var targetClient = Program.GameContext.PlayerController.GetClientByUserId(item.UserID);
                 if (targetClient != null && targetClient.GetHabbo() != null)//Again, do we have an active client?
                 {
                     room.GetRoomItemHandler().RemoveFurniture(targetClient, item.Id);

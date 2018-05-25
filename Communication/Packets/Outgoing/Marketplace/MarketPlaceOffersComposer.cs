@@ -1,7 +1,7 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Marketplace
 {
     using System.Collections.Generic;
-    using HabboHotel.Catalog.Marketplace;
+    using Game.Catalog.Marketplace;
 
     internal class MarketPlaceOffersComposer : ServerPacket
     {

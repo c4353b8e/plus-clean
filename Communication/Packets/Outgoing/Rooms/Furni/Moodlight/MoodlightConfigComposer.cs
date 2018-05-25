@@ -1,6 +1,6 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Rooms.Furni.Moodlight
 {
-    using HabboHotel.Items.Data.Moodlight;
+    using Game.Items.Data.Moodlight;
 
     internal class MoodlightConfigComposer : ServerPacket
     {

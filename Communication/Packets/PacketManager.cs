@@ -7,7 +7,7 @@
     using System.Threading;
     using System.Threading.Tasks;
     using Core.Logging;
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Incoming;
     using Incoming.Avatar;
     using Incoming.Catalog;
@@ -109,7 +109,7 @@
 
         }
 
-        public void TryExecutePacket(GameClient session, ClientPacket packet)
+        public void TryExecutePacket(Player session, ClientPacket packet)
         {
             if (session == null)
             {
@@ -148,7 +148,7 @@
             }
         }
 
-        private void ExecutePacketAsync(GameClient session, ClientPacket packet, IPacketEvent pak)
+        private void ExecutePacketAsync(Player session, ClientPacket packet, IPacketEvent pak)
         {
             var cancelSource = new CancellationTokenSource();
             var token = cancelSource.Token;

@@ -3,16 +3,16 @@
     using System;
     using System.Collections.Generic;
     using System.Text;
-    using HabboHotel.GameClients;
-    using HabboHotel.Navigator;
-    using HabboHotel.Rooms;
+    using Game.Navigator;
+    using Game.Players;
+    using Game.Rooms;
     using Outgoing.Navigator;
     using Outgoing.Rooms.Engine;
     using Outgoing.Rooms.Settings;
 
     internal class SaveRoomSettingsEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null)
             {

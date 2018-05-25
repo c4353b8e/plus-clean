@@ -1,9 +1,9 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Groups
 {
     using System;
-    using HabboHotel.GameClients;
-    using HabboHotel.Groups;
-    using HabboHotel.Rooms;
+    using Game.Groups;
+    using Game.Players;
+    using Game.Rooms;
     using Outgoing.Catalog;
     using Outgoing.Groups;
     using Outgoing.Inventory.Purse;
@@ -12,7 +12,7 @@
 
     internal class PurchaseGroupEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var name = Program.GameContext.GetChatManager().GetFilter().CheckMessage(packet.PopString());
             var description = Program.GameContext.GetChatManager().GetFilter().CheckMessage(packet.PopString());

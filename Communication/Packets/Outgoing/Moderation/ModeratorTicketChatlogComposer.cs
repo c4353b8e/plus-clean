@@ -1,7 +1,7 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Moderation
 {
-    using HabboHotel.Moderation;
-    using HabboHotel.Rooms;
+    using Game.Moderation;
+    using Game.Rooms;
     using Utilities;
 
     internal class ModeratorTicketChatlogComposer : ServerPacket
@@ -26,7 +26,7 @@
             WriteShort(ticket.ReportedChats.Count);
             foreach (var Chat in ticket.ReportedChats)
             {
-                WriteString(UnixTimestamp.FromUnixTimestamp(timestamp).ToShortTimeString());
+                WriteString(UnixUtilities.FromUnixTimestamp(timestamp).ToShortTimeString());
                 WriteInteger(ticket.Id);
                 WriteString(ticket.Reported != null ? ticket.Reported.Username : "No username");
                 WriteString(Chat);

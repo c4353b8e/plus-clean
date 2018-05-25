@@ -1,15 +1,15 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Moderation
 {
     using System.Collections.Generic;
-    using HabboHotel.GameClients;
-    using HabboHotel.Moderation;
-    using HabboHotel.Users.Authenticator;
+    using Game.Moderation;
+    using Game.Players;
+    using Game.Users.Authenticator;
     using Outgoing.Moderation;
     using Utilities;
 
     internal class SubmitNewTicketEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session?.GetHabbo() == null)
             {
@@ -29,7 +29,7 @@
 
             var chats = new List<string>();
 
-            var message = StringCharFilter.Escape(packet.PopString().Trim());
+            var message = StringUtilities.Escape(packet.PopString().Trim());
             var category = packet.PopInt();
             var reportedUserId = packet.PopInt();
             var type = packet.PopInt();// Unsure on what this actually is.
@@ -48,7 +48,7 @@
                 chats.Add(packet.PopString());
             }
 
-            var ticket = new ModerationTicket(1, type, category, UnixTimestamp.GetNow(), 1, session.GetHabbo(), reportedUser, message, session.GetHabbo().CurrentRoom, chats);
+            var ticket = new ModerationTicket(1, type, category, UnixUtilities.GetNow(), 1, session.GetHabbo(), reportedUser, message, session.GetHabbo().CurrentRoom, chats);
             if (!Program.GameContext.GetModerationManager().TryAddTicket(ticket))
             {
                 return;
@@ -64,8 +64,8 @@
                 dbClient.RunQuery("UPDATE `user_info` SET `cfhs` = `cfhs` + '1' WHERE `user_id` = '" + session.GetHabbo().Id + "' LIMIT 1");
             }
 
-            Program.GameContext.GetClientManager().ModAlert("A new support ticket has been submitted!");
-            Program.GameContext.GetClientManager().SendPacket(new ModeratorSupportTicketComposer(session.GetHabbo().Id, ticket), "mod_tool");
+            Program.GameContext.PlayerController.ModAlert("A new support ticket has been submitted!");
+            Program.GameContext.PlayerController.SendPacket(new ModeratorSupportTicketComposer(session.GetHabbo().Id, ticket), "mod_tool");
         }
     }
 }

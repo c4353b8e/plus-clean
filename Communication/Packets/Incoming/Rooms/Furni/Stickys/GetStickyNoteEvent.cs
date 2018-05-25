@@ -1,12 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Furni.Stickys
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Items;
+    using Game.Items;
+    using Game.Players;
     using Outgoing.Rooms.Furni.Stickys;
 
     internal class GetStickyNoteEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().InRoom)
             {

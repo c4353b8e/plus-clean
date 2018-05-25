@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using HabboHotel.Rooms.AI;
+    using Game.Rooms.AI;
 
     internal class PetInventoryComposer : ServerPacket
     {

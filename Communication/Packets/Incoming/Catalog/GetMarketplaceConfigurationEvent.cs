@@ -1,11 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Catalog
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Catalog;
 
     public class GetMarketplaceConfigurationEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             session.SendPacket(new MarketplaceConfigurationComposer());
         }

@@ -1,13 +1,13 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Marketplace
 {
-    using HabboHotel.Catalog.Utilities;
-    using HabboHotel.GameClients;
+    using Game.Catalog.Utilities;
+    using Game.Players;
     using Outgoing.Marketplace;
     using Utilities;
 
     internal class MakeOfferEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var sellingPrice = packet.PopInt();
             packet.PopInt(); //comission
@@ -42,7 +42,7 @@
 
             using (var dbClient = Program.DatabaseManager.GetQueryReactor())
             {
-                dbClient.SetQuery("INSERT INTO `catalog_marketplace_offers` (`furni_id`,`item_id`,`user_id`,`asking_price`,`total_price`,`public_name`,`sprite_id`,`item_type`,`timestamp`,`extra_data`,`limited_number`,`limited_stack`) VALUES ('" + itemId + "','" + item.BaseItem + "','" + session.GetHabbo().Id + "','" + sellingPrice + "','" + totalPrice + "',@public_name,'" + item.GetBaseItem().SpriteId + "','" + itemType + "','" + UnixTimestamp.GetNow() + "',@extra_data, '" + item.LimitedNo + "', '" + item.LimitedTot + "')");
+                dbClient.SetQuery("INSERT INTO `catalog_marketplace_offers` (`furni_id`,`item_id`,`user_id`,`asking_price`,`total_price`,`public_name`,`sprite_id`,`item_type`,`timestamp`,`extra_data`,`limited_number`,`limited_stack`) VALUES ('" + itemId + "','" + item.BaseItem + "','" + session.GetHabbo().Id + "','" + sellingPrice + "','" + totalPrice + "',@public_name,'" + item.GetBaseItem().SpriteId + "','" + itemType + "','" + UnixUtilities.GetNow() + "',@extra_data, '" + item.LimitedNo + "', '" + item.LimitedTot + "')");
                 dbClient.AddParameter("public_name", item.GetBaseItem().PublicName);
                 dbClient.AddParameter("extra_data", item.ExtraData);
                 dbClient.RunQuery();

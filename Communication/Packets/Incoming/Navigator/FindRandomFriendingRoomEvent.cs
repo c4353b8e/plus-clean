@@ -1,11 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Navigator
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Rooms.Session;
 
     internal class FindRandomFriendingRoomEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var instance = Program.GameContext.GetRoomManager().TryGetRandomLoadedRoom();
 

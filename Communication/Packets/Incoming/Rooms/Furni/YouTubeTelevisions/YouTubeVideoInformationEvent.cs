@@ -1,12 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Furni.YouTubeTelevisions
 {
     using System.Linq;
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Rooms.Furni.YouTubeTelevisions;
 
     internal class YouTubeVideoInformationEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var itemId = packet.PopInt();
             var videoId = packet.PopString();

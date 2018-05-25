@@ -1,10 +1,10 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Messenger
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
 
     internal class SendMsgEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null || session.GetHabbo().GetMessenger() == null)
             {

@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using HabboHotel.Users.Messenger;
+    using Game.Users.Messenger;
 
     internal class HabboSearchResultComposer : ServerPacket
     {
@@ -12,7 +12,7 @@
             WriteInteger(Friends.Count);
             foreach (var Friend in Friends.ToList())
             {
-                var Online = Program.GameContext.GetClientManager().GetClientByUserId(Friend.UserId) != null;
+                var Online = Program.GameContext.PlayerController.GetClientByUserId(Friend.UserId) != null;
 
                 WriteInteger(Friend.UserId);
                WriteString(Friend.Username);
@@ -28,7 +28,7 @@
             WriteInteger(OtherUsers.Count);
             foreach (var OtherUser in OtherUsers.ToList())
             {
-                var Online = Program.GameContext.GetClientManager().GetClientByUserId(OtherUser.UserId) != null;
+                var Online = Program.GameContext.PlayerController.GetClientByUserId(OtherUser.UserId) != null;
 
                 WriteInteger(OtherUser.UserId);
                WriteString(OtherUser.Username);

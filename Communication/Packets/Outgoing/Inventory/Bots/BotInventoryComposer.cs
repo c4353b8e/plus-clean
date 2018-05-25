@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using HabboHotel.Users.Inventory.Bots;
+    using Game.Users.Inventory.Bots;
 
     internal class BotInventoryComposer : ServerPacket
     {

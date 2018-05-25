@@ -2,12 +2,13 @@
 {
     using System;
     using System.Text;
-    using HabboHotel.Games;
+    using Game.Games;
+    using Game.Players;
     using Outgoing.GameCenter;
 
     internal class JoinPlayerQueueEvent : IPacketEvent
     {
-        public void Parse(HabboHotel.GameClients.GameClient Session, ClientPacket Packet)
+        public void Parse(Player Session, ClientPacket Packet)
         {
             if (Session == null || Session.GetHabbo() == null)
             {

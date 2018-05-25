@@ -1,12 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Furni
 {
     using System;
-    using HabboHotel.GameClients;
-    using HabboHotel.Items;
+    using Game.Items;
+    using Game.Players;
 
     internal class SaveBrandingItemEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session?.GetHabbo() == null || !session.GetHabbo().InRoom)
             {

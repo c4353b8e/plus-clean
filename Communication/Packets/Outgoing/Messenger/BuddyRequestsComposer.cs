@@ -1,7 +1,7 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Messenger
 {
     using System.Collections.Generic;
-    using HabboHotel.Users.Messenger;
+    using Game.Users.Messenger;
 
     internal class BuddyRequestsComposer : ServerPacket
     {

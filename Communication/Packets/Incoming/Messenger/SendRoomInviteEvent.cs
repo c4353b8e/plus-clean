@@ -1,13 +1,13 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Messenger
 {
     using System.Collections.Generic;
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Messenger;
     using Utilities;
 
     internal class SendRoomInviteEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session.GetHabbo().TimeMuted > 0)
             {
@@ -31,7 +31,7 @@
                 }
             }
 
-            var message = StringCharFilter.Escape(packet.PopString());
+            var message = StringUtilities.Escape(packet.PopString());
             if (message.Length > 121)
             {
                 message = message.Substring(0, 121);
@@ -44,7 +44,7 @@
                     continue;
                 }
 
-                var client = Program.GameContext.GetClientManager().GetClientByUserId(userId);
+                var client = Program.GameContext.PlayerController.GetClientByUserId(userId);
                 if (client == null || client.GetHabbo() == null || client.GetHabbo().AllowMessengerInvites || client.GetHabbo().AllowConsoleMessages == false)
                 {
                     continue;

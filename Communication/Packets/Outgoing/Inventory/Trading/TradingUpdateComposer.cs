@@ -1,8 +1,8 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Inventory.Trading
 {
     using System.Linq;
-    using HabboHotel.Items;
-    using HabboHotel.Rooms.Trading;
+    using Game.Items;
+    using Game.Rooms.Trading;
 
     internal class TradingUpdateComposer : ServerPacket
     {

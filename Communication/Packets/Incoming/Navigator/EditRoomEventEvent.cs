@@ -1,13 +1,13 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Navigator
 {
     using System;
-    using HabboHotel.GameClients;
-    using HabboHotel.Rooms;
+    using Game.Players;
+    using Game.Rooms;
     using Outgoing.Rooms.Engine;
 
     internal class EditRoomEventEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var roomId = packet.PopInt();
             var name = Program.GameContext.GetChatManager().GetFilter().CheckMessage(packet.PopString());

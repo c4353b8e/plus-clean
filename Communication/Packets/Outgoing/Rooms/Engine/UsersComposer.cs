@@ -3,10 +3,10 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using HabboHotel.Groups;
-    using HabboHotel.Rooms;
-    using HabboHotel.Rooms.AI;
-    using HabboHotel.Users.Authenticator;
+    using Game.Groups;
+    using Game.Rooms;
+    using Game.Rooms.AI;
+    using Game.Users.Authenticator;
 
     internal class UsersComposer : ServerPacket
     {

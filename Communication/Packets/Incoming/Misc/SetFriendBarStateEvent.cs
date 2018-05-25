@@ -1,12 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Misc
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Users.Messenger.FriendBar;
+    using Game.Players;
+    using Game.Users.Messenger.FriendBar;
     using Outgoing.Sound;
 
     internal class SetFriendBarStateEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null)
             {

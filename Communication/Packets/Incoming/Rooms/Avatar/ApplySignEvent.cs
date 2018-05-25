@@ -1,12 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Avatar
 {
     using System;
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Utilities;
 
     internal class ApplySignEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var signId = packet.PopInt();
             if (!Program.GameContext.GetRoomManager().TryGetRoom(session.GetHabbo().CurrentRoomId, out var room))
@@ -25,7 +25,7 @@
 
             user.SetStatus("sign", Convert.ToString(signId));
             user.UpdateNeeded = true;
-            user.SignTime = UnixTimestamp.GetNow() + 5;
+            user.SignTime = UnixUtilities.GetNow() + 5;
         }
     }
 }

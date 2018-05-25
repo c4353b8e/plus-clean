@@ -1,8 +1,8 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Moderation
 {
     using System.Collections.Generic;
-    using HabboHotel.Rooms;
-    using HabboHotel.Rooms.Chat.Logs;
+    using Game.Rooms;
+    using Game.Rooms.Chat.Logs;
     using Utilities;
 
     internal class ModeratorRoomChatlogComposer : ServerPacket
@@ -28,7 +28,7 @@
                     Username = Entry.PlayerNullable().Username;
                 }
 
-                WriteString(UnixTimestamp.FromUnixTimestamp(Entry.Timestamp).ToShortTimeString()); // time?
+                WriteString(UnixUtilities.FromUnixTimestamp(Entry.Timestamp).ToShortTimeString()); // time?
                 WriteInteger(Entry.PlayerId); // User Id
                 WriteString(Username); // Username
                 WriteString(!string.IsNullOrEmpty(Entry.Message) ? Entry.Message : "** user sent a blank message **"); // Message        

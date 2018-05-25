@@ -1,11 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Catalog
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Catalog;
 
     internal class GetCatalogOfferEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var offerId = packet.PopInt();
             if (!Program.GameContext.GetCatalog().ItemOffers.ContainsKey(offerId))

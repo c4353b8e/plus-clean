@@ -1,8 +1,8 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Inventory.Furni
 {
     using System.Collections.Generic;
-    using HabboHotel.Catalog.Utilities;
-    using HabboHotel.Items;
+    using Game.Catalog.Utilities;
+    using Game.Items;
 
     internal class FurniListComposer : ServerPacket
     {

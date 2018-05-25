@@ -1,12 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Furni
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Items;
+    using Game.Items;
+    using Game.Players;
     using Outgoing.Groups;
 
     internal class GetGroupFurniSettingsEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null || !session.GetHabbo().InRoom)
             {

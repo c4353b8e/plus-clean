@@ -1,6 +1,6 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Rooms.Furni
 {
-    using HabboHotel.Items;
+    using Game.Items;
 
     internal class OpenGiftComposer : ServerPacket
     {

@@ -1,13 +1,13 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.AI.Pets
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Quests;
+    using Game.Players;
+    using Game.Quests;
     using Outgoing.Pets;
     using Outgoing.Rooms.Avatar;
 
     internal class RespectPetEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null || !session.GetHabbo().InRoom || session.GetHabbo().GetStats() == null || session.GetHabbo().GetStats().DailyPetRespectPoints == 0)
             {

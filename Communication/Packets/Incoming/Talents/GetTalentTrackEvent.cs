@@ -1,11 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Talents
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Talents;
 
     internal class GetTalentTrackEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var type = packet.PopString();
 

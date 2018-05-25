@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using HabboHotel.LandingView.Promotions;
+    using Game.LandingView.Promotions;
 
     internal class PromoArticlesComposer : ServerPacket
     {

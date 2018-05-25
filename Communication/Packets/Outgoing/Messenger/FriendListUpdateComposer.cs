@@ -2,8 +2,8 @@
 {
     using System;
     using System.Linq;
-    using HabboHotel.GameClients;
-    using HabboHotel.Users.Messenger;
+    using Game.Players;
+    using Game.Users.Messenger;
 
     internal class FriendListUpdateComposer : ServerPacket
     {
@@ -16,7 +16,7 @@
             WriteInteger(FriendId);
         }
 
-        public FriendListUpdateComposer(GameClient Session, MessengerBuddy Buddy)
+        public FriendListUpdateComposer(Player Session, MessengerBuddy Buddy)
             : base(ServerPacketHeader.FriendListUpdateMessageComposer)
         {
             WriteInteger(0);//Category Count

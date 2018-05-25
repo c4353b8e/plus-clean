@@ -1,10 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.GameCenter
 {
+    using Game.Players;
     using Outgoing.GameCenter;
 
     internal class GetGameListingEvent : IPacketEvent
     {
-        public void Parse(HabboHotel.GameClients.GameClient Session, ClientPacket Packet)
+        public void Parse(Player Session, ClientPacket Packet)
         {
             var Games = Program.GameContext.GetGameDataManager().GameData;
 

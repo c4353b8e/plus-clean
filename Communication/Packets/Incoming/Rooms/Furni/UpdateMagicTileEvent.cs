@@ -1,13 +1,13 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Furni
 {
     using System;
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Rooms.Engine;
     using Outgoing.Rooms.Furni;
 
     internal class UpdateMagicTileEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().InRoom)
             {

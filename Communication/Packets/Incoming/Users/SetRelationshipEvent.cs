@@ -1,15 +1,15 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Users
 {
     using System;
-    using HabboHotel.GameClients;
-    using HabboHotel.Users.Authenticator;
-    using HabboHotel.Users.Relationships;
+    using Game.Players;
+    using Game.Users.Authenticator;
+    using Game.Users.Relationships;
     using Outgoing.Messenger;
     using Outgoing.Moderation;
 
     internal class SetRelationshipEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null || session.GetHabbo().GetMessenger() == null)
             {
@@ -82,7 +82,7 @@
                     }
                 }
 
-                var client = Program.GameContext.GetClientManager().GetClientByUserId(user);
+                var client = Program.GameContext.PlayerController.GetClientByUserId(user);
                 if (client != null)
                 {
                     session.GetHabbo().GetMessenger().UpdateFriend(user, client, true);

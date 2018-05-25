@@ -2,7 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    using HabboHotel.Rooms;
+    using Game.Rooms;
 
     internal class GroupCreationWindowComposer : ServerPacket
     {

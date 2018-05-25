@@ -1,7 +1,7 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Navigator
 {
     using System.Collections.Generic;
-    using HabboHotel.Navigator;
+    using Game.Navigator;
 
     internal class UserFlatCatsComposer : ServerPacket
     {

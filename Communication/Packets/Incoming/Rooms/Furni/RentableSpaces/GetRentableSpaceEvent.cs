@@ -1,11 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Furni.RentableSpaces
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Rooms.Furni.RentableSpaces;
 
     internal class GetRentableSpaceEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             packet.PopInt(); //unknown
 

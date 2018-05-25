@@ -3,13 +3,13 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using HabboHotel.GameClients;
-    using HabboHotel.Items.Televisions;
+    using Game.Items.Televisions;
+    using Game.Players;
     using Outgoing.Rooms.Furni.YouTubeTelevisions;
 
     internal class YouTubeGetNextVideo : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().InRoom)
             {

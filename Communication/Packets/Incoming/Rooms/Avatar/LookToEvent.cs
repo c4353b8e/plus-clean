@@ -1,11 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Avatar
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Rooms.PathFinding;
+    using Game.Players;
+    using Game.Rooms.PathFinding;
 
     internal class LookToEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!Program.GameContext.GetRoomManager().TryGetRoom(session.GetHabbo().CurrentRoomId, out var room))
             {

@@ -2,11 +2,11 @@
 {
     using System;
     using System.Linq;
-    using HabboHotel.GameClients;
+    using Game.Players;
 
     internal class SetMannequinNameEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var room = session.GetHabbo().CurrentRoom;
             if (room == null || !room.CheckRights(session, true))

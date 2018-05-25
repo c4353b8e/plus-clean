@@ -1,12 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Action
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Users.Authenticator;
+    using Game.Players;
+    using Game.Users.Authenticator;
     using Outgoing.Rooms.Action;
 
     internal class UnIgnoreUserEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().InRoom)
             {

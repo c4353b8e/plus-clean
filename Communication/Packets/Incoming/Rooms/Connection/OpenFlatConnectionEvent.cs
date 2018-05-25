@@ -1,10 +1,10 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Connection
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
 
     public class OpenFlatConnectionEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null)
             {

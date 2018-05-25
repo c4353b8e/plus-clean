@@ -1,10 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Moderation
 {
-    using HabboHotel.Users.Authenticator;
+    using Game.Players;
+    using Game.Users.Authenticator;
 
     internal class ModerationMuteEvent : IPacketEvent
     {
-        public void Parse(HabboHotel.GameClients.GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session?.GetHabbo() == null || !session.GetHabbo().GetPermissions().HasRight("mod_mute"))
             {

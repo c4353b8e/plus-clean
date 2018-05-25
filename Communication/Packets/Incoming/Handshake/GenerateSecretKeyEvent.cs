@@ -2,12 +2,12 @@
 {
     using Encryption;
     using Encryption.Crypto.Prng;
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Handshake;
 
     public class GenerateSecretKeyEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             Program.EncryptionEnabled = true;
 

@@ -1,7 +1,7 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Catalog
 {
-    using HabboHotel.Catalog;
-    using HabboHotel.Items;
+    using Game.Catalog;
+    using Game.Items;
 
     public class PurchaseOKComposer : ServerPacket
     {

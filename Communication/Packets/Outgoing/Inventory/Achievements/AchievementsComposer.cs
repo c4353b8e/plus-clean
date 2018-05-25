@@ -1,12 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Inventory.Achievements
 {
     using System.Collections.Generic;
-    using HabboHotel.Achievements;
-    using HabboHotel.GameClients;
+    using Game.Achievements;
+    using Game.Players;
 
     internal class AchievementsComposer : ServerPacket
     {
-        public AchievementsComposer(GameClient Session, List<Achievement> Achievements)
+        public AchievementsComposer(Player Session, List<Achievement> Achievements)
             : base(ServerPacketHeader.AchievementsMessageComposer)
         {
             WriteInteger(Achievements.Count);

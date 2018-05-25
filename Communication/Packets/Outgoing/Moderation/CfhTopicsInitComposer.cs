@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using HabboHotel.Moderation;
+    using Game.Moderation;
 
     internal class CfhTopicsInitComposer : ServerPacket
     {

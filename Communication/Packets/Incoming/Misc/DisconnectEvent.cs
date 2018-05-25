@@ -1,10 +1,10 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Misc
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
 
     internal class DisconnectEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             session.Disconnect();
         }

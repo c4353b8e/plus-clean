@@ -1,13 +1,13 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Navigator
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Navigator;
-    using HabboHotel.Rooms;
+    using Game.Navigator;
+    using Game.Players;
+    using Game.Rooms;
     using Outgoing.Navigator;
 
     internal class CreateFlatEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null)
             {

@@ -1,13 +1,14 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Catalog
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Rooms;
+    using Game.Players;
+    using Game.Rooms;
+    using Game.Users.Messenger;
     using Outgoing.Catalog;
     using Outgoing.Rooms.Engine;
 
     public class PurchaseRoomPromotionEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null)
             {
@@ -66,7 +67,7 @@
                 session.GetHabbo().CurrentRoom.SendPacket(new RoomEventComposer(data, data.Promotion));
             }
 
-            session.GetHabbo().GetMessenger().BroadcastAchievement(session.GetHabbo().Id, HabboHotel.Users.Messenger.MessengerEventTypes.EventStarted, name);
+            session.GetHabbo().GetMessenger().BroadcastAchievement(session.GetHabbo().Id, MessengerEventTypes.EventStarted, name);
         }
     }
 }

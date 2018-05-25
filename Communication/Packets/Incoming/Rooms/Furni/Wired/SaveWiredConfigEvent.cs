@@ -1,12 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Furni.Wired
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Items.Wired;
+    using Game.Items.Wired;
+    using Game.Players;
     using Outgoing.Rooms.Furni.Wired;
 
     internal class SaveWiredConfigEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null)
             {

@@ -1,11 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Moderation
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Moderation;
 
     internal class CallForHelpPendingCallsDeletedEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null)
             {
@@ -18,7 +18,7 @@
                 if (pendingTicket != null)
                 {
                     pendingTicket.Answered = true;
-                    Program.GameContext.GetClientManager().SendPacket(new ModeratorSupportTicketComposer(session.GetHabbo().Id, pendingTicket), "mod_tool");
+                    Program.GameContext.PlayerController.SendPacket(new ModeratorSupportTicketComposer(session.GetHabbo().Id, pendingTicket), "mod_tool");
                 }
             }
         }

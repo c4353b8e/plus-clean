@@ -1,9 +1,9 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Rooms.AI.Pets
 {
     using System;
-    using HabboHotel.Rooms;
-    using HabboHotel.Rooms.AI;
-    using HabboHotel.Users;
+    using Game.Rooms;
+    using Game.Rooms.AI;
+    using Game.Users;
     using Utilities;
 
     internal class PetInformationComposer : ServerPacket
@@ -66,7 +66,7 @@
             WriteInteger(100);
             WriteInteger(Habbo.GetStats().Respect);
             WriteInteger(Habbo.Id);
-            WriteInteger(Convert.ToInt32(Math.Floor((UnixTimestamp.GetNow() - Habbo.AccountCreated) / 86400)));//How?
+            WriteInteger(Convert.ToInt32(Math.Floor((UnixUtilities.GetNow() - Habbo.AccountCreated) / 86400)));//How?
            WriteString(Habbo.Username);
             WriteInteger(1);//3 on hab
             WriteBoolean(false);

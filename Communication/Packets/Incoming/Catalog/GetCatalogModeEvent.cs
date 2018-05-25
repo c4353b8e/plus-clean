@@ -1,10 +1,10 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Catalog
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
 
     internal class GetCatalogModeEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             // string mode = packet.PopString();
         }

@@ -1,13 +1,13 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Users
 {
     using System.Collections.Generic;
-    using HabboHotel.GameClients;
-    using HabboHotel.Users.Authenticator;
+    using Game.Players;
+    using Game.Users.Authenticator;
     using Outgoing.Users;
 
     internal class GetIgnoredUsersEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var ignoredUsers = new List<string>();
 

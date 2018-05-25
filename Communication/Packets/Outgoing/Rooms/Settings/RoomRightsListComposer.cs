@@ -1,7 +1,7 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Rooms.Settings
 {
     using System.Linq;
-    using HabboHotel.Rooms;
+    using Game.Rooms;
 
     internal class RoomRightsListComposer : ServerPacket
     {

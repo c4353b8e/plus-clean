@@ -1,10 +1,10 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Furni
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
 
     internal class DiceOffEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var room = session.GetHabbo().CurrentRoom;
             if (room == null)

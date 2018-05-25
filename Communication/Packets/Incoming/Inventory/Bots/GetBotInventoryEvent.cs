@@ -1,11 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Inventory.Bots
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Inventory.Bots;
 
     internal class GetBotInventoryEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session.GetHabbo().GetInventoryComponent() == null)
             {

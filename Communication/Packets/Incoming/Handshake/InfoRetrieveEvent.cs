@@ -1,11 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Handshake
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Handshake;
 
     public class InfoRetrieveEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             session.SendPacket(new UserObjectComposer(session.GetHabbo()));
             session.SendPacket(new UserPerksComposer(session.GetHabbo()));

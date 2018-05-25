@@ -1,13 +1,13 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Help
 {
     using System;
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Help;
     using Utilities;
 
     internal class SubmitBullyReportEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             //0 = sent, 1 = blocked, 2 = no chat, 3 = already reported.
             if (session == null)
@@ -27,14 +27,14 @@
                 return;
             }
 
-            var client = Program.GameContext.GetClientManager().GetClientByUserId(Convert.ToInt32(userId));
+            var client = Program.GameContext.PlayerController.GetClientByUserId(Convert.ToInt32(userId));
             if (client == null)
             {
                 session.SendPacket(new SubmitBullyReportComposer(0));//Just say it's sent, the user isn't found.
                 return;
             }
 
-            if (session.GetHabbo().LastAdvertiseReport > UnixTimestamp.GetNow())
+            if (session.GetHabbo().LastAdvertiseReport > UnixUtilities.GetNow())
             {
                 session.SendNotification("Reports can only be sent per 5 minutes!");
                 return;
@@ -62,17 +62,17 @@
 
             if (session.GetHabbo().Rank <= 1)
             {
-                session.GetHabbo().LastAdvertiseReport = UnixTimestamp.GetNow() + 300;
+                session.GetHabbo().LastAdvertiseReport = UnixUtilities.GetNow() + 300;
             }
             else
             {
-                session.GetHabbo().LastAdvertiseReport = UnixTimestamp.GetNow();
+                session.GetHabbo().LastAdvertiseReport = UnixUtilities.GetNow();
             }
 
             client.GetHabbo().AdvertisingReported = true;
             session.SendPacket(new SubmitBullyReportComposer(0));
-            //Program.Game.GetClientManager().ModAlert("New advertising report! " + Client.GetHabbo().Username + " has been reported for advertising by " + Session.GetHabbo().Username +".");
-            Program.GameContext.GetClientManager().DoAdvertisingReport(session, client);
+            //Program.Game.GameClientManager.ModAlert("New advertising report! " + Client.GetHabbo().Username + " has been reported for advertising by " + Session.GetHabbo().Username +".");
+            Program.GameContext.PlayerController.DoAdvertisingReport(session, client);
         }
     }
 }

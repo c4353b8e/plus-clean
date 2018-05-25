@@ -1,11 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Navigator
 {
-    using HabboHotel.Rooms;
+    using Game.Players;
+    using Game.Rooms;
     using Outgoing.Navigator;
 
     internal class GetGuestRoomEvent : IPacketEvent
     {
-        public void Parse(HabboHotel.GameClients.GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var roomId = packet.PopInt();
 

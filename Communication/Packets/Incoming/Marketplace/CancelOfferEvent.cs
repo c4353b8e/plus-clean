@@ -2,14 +2,14 @@
 {
     using System;
     using System.Data;
-    using HabboHotel.GameClients;
-    using HabboHotel.Items;
+    using Game.Items;
+    using Game.Players;
     using Outgoing.Inventory.Furni;
     using Outgoing.Marketplace;
 
     internal class CancelOfferEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session?.GetHabbo() == null)
             {

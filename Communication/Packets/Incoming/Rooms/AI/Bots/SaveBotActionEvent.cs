@@ -2,14 +2,15 @@
 {
     using System;
     using System.Data;
-    using HabboHotel.Rooms.AI.Speech;
+    using Game.Players;
+    using Game.Rooms.AI.Speech;
     using Outgoing;
     using Outgoing.Rooms.Avatar;
     using Outgoing.Rooms.Engine;
 
     internal class SaveBotActionEvent : IPacketEvent
     {
-        public void Parse(HabboHotel.GameClients.GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().InRoom)
             {

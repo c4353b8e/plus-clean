@@ -1,11 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Messenger
 {
     using System.Linq;
-    using HabboHotel.GameClients;
+    using Game.Players;
 
     internal class RemoveBuddyEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null || session.GetHabbo().GetMessenger() == null)
             {
@@ -41,7 +41,7 @@
                         session.GetHabbo().Relationships.Remove(id);
                     }
 
-                    var target = Program.GameContext.GetClientManager().GetClientByUserId(id);
+                    var target = Program.GameContext.PlayerController.GetClientByUserId(id);
                     if (target != null)
                     {
                         if (target.GetHabbo().Relationships.ContainsKey(session.GetHabbo().Id))

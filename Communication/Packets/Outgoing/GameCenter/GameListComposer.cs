@@ -1,7 +1,7 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.GameCenter
 {
     using System.Collections.Generic;
-    using HabboHotel.Games;
+    using Game.Games;
 
     internal class GameListComposer : ServerPacket
     {

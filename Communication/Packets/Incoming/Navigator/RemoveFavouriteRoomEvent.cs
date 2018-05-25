@@ -1,11 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Navigator
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Navigator;
 
     public class RemoveFavouriteRoomEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var id = packet.PopInt();
 

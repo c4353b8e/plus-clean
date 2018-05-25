@@ -1,10 +1,10 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Help
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
 
     internal class GetSanctionStatusEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             //Session.SendMessage(new SanctionStatusComposer());
         }

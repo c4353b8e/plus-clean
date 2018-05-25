@@ -1,10 +1,10 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Sound
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
 
     internal class SetSoundSettingsEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var volume = "";
             for (var i = 0; i < 3; i++)

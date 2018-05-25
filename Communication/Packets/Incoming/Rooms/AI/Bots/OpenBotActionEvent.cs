@@ -1,12 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.AI.Bots
 {
     using System.Linq;
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Rooms.AI.Bots;
 
     internal class OpenBotActionEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().InRoom)
             {

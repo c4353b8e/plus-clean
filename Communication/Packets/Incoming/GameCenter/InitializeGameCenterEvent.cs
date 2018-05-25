@@ -1,8 +1,10 @@
 ﻿namespace Plus.Communication.Packets.Incoming.GameCenter
 {
+    using Game.Players;
+
     internal class InitializeGameCenterEvent : IPacketEvent
     {
-        public void Parse(HabboHotel.GameClients.GameClient Session, ClientPacket Packet)
+        public void Parse(Player Session, ClientPacket Packet)
         {
            
         }

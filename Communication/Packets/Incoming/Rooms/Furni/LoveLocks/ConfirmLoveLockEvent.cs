@@ -1,13 +1,13 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Furni.LoveLocks
 {
     using System;
-    using HabboHotel.GameClients;
-    using HabboHotel.Items;
+    using Game.Items;
+    using Game.Players;
     using Outgoing.Rooms.Furni.LoveLocks;
 
     internal class ConfirmLoveLockEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var pId = packet.PopInt();
             var isConfirmed = packet.PopBoolean();

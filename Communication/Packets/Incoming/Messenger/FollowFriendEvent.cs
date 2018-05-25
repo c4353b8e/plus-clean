@@ -1,12 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Messenger
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Messenger;
     using Outgoing.Rooms.Session;
 
     internal class FollowFriendEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null || session.GetHabbo().GetMessenger() == null)
             {
@@ -19,7 +19,7 @@
                 return;
             }
 
-            var client = Program.GameContext.GetClientManager().GetClientByUserId(buddyId);
+            var client = Program.GameContext.PlayerController.GetClientByUserId(buddyId);
             if (client == null || client.GetHabbo() == null)
             {
                 return;

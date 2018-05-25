@@ -1,11 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Moderation
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Moderation;
 
     internal class ReleaseTicketEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null || !session.GetHabbo().GetPermissions().HasRight("mod_tool"))
             {
@@ -22,7 +22,7 @@
                 }
 
                 ticket.Moderator = null;
-                Program.GameContext.GetClientManager().SendPacket(new ModeratorSupportTicketComposer(session.GetHabbo().Id, ticket), "mod_tool");
+                Program.GameContext.PlayerController.SendPacket(new ModeratorSupportTicketComposer(session.GetHabbo().Id, ticket), "mod_tool");
             }
         }
     }

@@ -1,10 +1,10 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Avatar
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
 
     internal class SaveWardrobeOutfitEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var slotId = packet.PopInt();
             var look = packet.PopString();

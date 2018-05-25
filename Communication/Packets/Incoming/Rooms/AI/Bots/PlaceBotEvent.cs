@@ -4,13 +4,14 @@
     using System.Collections.Generic;
     using System.Data;
     using System.Linq;
-    using HabboHotel.Rooms.AI;
-    using HabboHotel.Rooms.AI.Speech;
+    using Game.Players;
+    using Game.Rooms.AI;
+    using Game.Rooms.AI.Speech;
     using Outgoing.Inventory.Bots;
 
     internal class PlaceBotEvent : IPacketEvent
     {
-        public void Parse(HabboHotel.GameClients.GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().InRoom)
             {

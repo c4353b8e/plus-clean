@@ -2,12 +2,12 @@
 {
     using System;
     using System.Linq;
-    using HabboHotel.GameClients;
-    using HabboHotel.Items;
+    using Game.Items;
+    using Game.Players;
 
     internal class AddStickyNoteEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var itemId = packet.PopInt();
             var locationData = packet.PopString();

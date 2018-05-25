@@ -1,12 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Inventory.Badges
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Quests;
+    using Game.Players;
+    using Game.Quests;
     using Outgoing.Users;
 
     internal class SetActivatedBadgesEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             session.GetHabbo().GetBadgeComponent().ResetSlots();
 

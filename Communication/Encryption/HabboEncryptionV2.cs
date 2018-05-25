@@ -24,7 +24,7 @@
                 var m = Encoding.Default.GetBytes(message);
                 var c = Rsa.Sign(m);
 
-                return Converter.BytesToHexString(c);
+                return EncryptionUtilities.BytesToHexString(c);
             }
             catch
             {
@@ -54,7 +54,7 @@
         {
             try
             {
-                var cbytes = Converter.HexStringToBytes(publicKey);
+                var cbytes = EncryptionUtilities.HexStringToBytes(publicKey);
                 var publicKeyBytes = Rsa.Verify(cbytes);
                 var publicKeyString = Encoding.Default.GetString(publicKeyBytes);
                 return DiffieHellman.CalculateSharedKey(new BigInteger(publicKeyString, 10));

@@ -1,12 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Action
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Navigator;
     using Outgoing.Rooms.Session;
 
     internal class LetUserInEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!Program.GameContext.GetRoomManager().TryGetRoom(session.GetHabbo().CurrentRoomId, out var room))
             {
@@ -21,7 +21,7 @@
             var name = packet.PopString();
             var accepted = packet.PopBoolean();
 
-            var client = Program.GameContext.GetClientManager().GetClientByUsername(name);
+            var client = Program.GameContext.PlayerController.GetClientByUsername(name);
             if (client == null)
             {
                 return;

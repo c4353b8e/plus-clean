@@ -1,7 +1,7 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Users
 {
     using System.Linq;
-    using HabboHotel.Users;
+    using Game.Users;
 
     internal class HabboUserBadgesComposer : ServerPacket
     {

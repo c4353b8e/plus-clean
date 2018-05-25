@@ -36,7 +36,7 @@
                         {
                             var notice = inputData.Substring(6);
 
-                            Program.GameContext.GetClientManager().SendPacket(new BroadcastMessageAlertComposer(Program.LanguageManager.TryGetValue("server.console.alert") + "\n\n" + notice));
+                            Program.GameContext.PlayerController.SendPacket(new BroadcastMessageAlertComposer(Program.LanguageManager.TryGetValue("server.console.alert") + "\n\n" + notice));
 
                             Logger.Trace("Alert successfully sent.");
                             break;

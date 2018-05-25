@@ -1,10 +1,10 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Moderation
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
 
     internal class ModerationCautionEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null || !session.GetHabbo().GetPermissions().HasRight("mod_caution"))
             {
@@ -14,7 +14,7 @@
             var userId = packet.PopInt();
             var message = packet.PopString();
 
-            var client = Program.GameContext.GetClientManager().GetClientByUserId(userId);
+            var client = Program.GameContext.PlayerController.GetClientByUserId(userId);
             if (client == null || client.GetHabbo() == null)
             {
                 return;

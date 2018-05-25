@@ -1,13 +1,13 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Furni
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Items;
+    using Game.Items;
+    using Game.Players;
     using Outgoing.Inventory.Furni;
     using Outgoing.Inventory.Purse;
 
     internal class CreditFurniRedeemEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().InRoom)
             {

@@ -1,12 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Action
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Rooms.Permissions;
     using Outgoing.Rooms.Settings;
 
     internal class RemoveRightsEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().InRoom)
             {

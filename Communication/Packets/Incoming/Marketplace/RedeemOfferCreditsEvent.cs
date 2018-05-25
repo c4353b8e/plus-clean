@@ -2,12 +2,12 @@
 {
     using System;
     using System.Data;
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Inventory.Purse;
 
     internal class RedeemOfferCreditsEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var creditsOwed = 0;
 

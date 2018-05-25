@@ -2,11 +2,11 @@
 {
     using System;
     using System.Globalization;
-    using HabboHotel.Catalog.Utilities;
-    using HabboHotel.GameClients;
-    using HabboHotel.Items;
-    using HabboHotel.Quests;
-    using HabboHotel.Users.Authenticator;
+    using Game.Catalog.Utilities;
+    using Game.Items;
+    using Game.Players;
+    using Game.Quests;
+    using Game.Users.Authenticator;
     using Outgoing.Catalog;
     using Outgoing.Inventory.Furni;
     using Outgoing.Inventory.Purse;
@@ -15,13 +15,13 @@
 
     public class PurchaseFromCatalogAsGiftEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var pageId = packet.PopInt();
             var itemId = packet.PopInt();
             var data = packet.PopString();
-            var giftUser = StringCharFilter.Escape(packet.PopString());
-            var giftMessage = StringCharFilter.Escape(packet.PopString().Replace(Convert.ToChar(5), ' '));
+            var giftUser = StringUtilities.Escape(packet.PopString());
+            var giftMessage = StringUtilities.Escape(packet.PopString().Replace(Convert.ToChar(5), ' '));
             var spriteId = packet.PopInt();
             var ribbon = packet.PopInt();
             var colour = packet.PopInt();
@@ -234,7 +234,7 @@
             var giveItem = ItemFactory.CreateGiftItem(presentData, habbo, ed, ed, newItemId);
             if (giveItem != null)
             {
-                var receiver = Program.GameContext.GetClientManager().GetClientByUserId(habbo.Id);
+                var receiver = Program.GameContext.PlayerController.GetClientByUserId(habbo.Id);
                 if (receiver != null)
                 {
                     receiver.GetHabbo().GetInventoryComponent().TryAddItem(giveItem);

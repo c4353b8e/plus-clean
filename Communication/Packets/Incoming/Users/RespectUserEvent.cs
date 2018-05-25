@@ -1,13 +1,13 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Users
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Quests;
+    using Game.Players;
+    using Game.Quests;
     using Outgoing.Rooms.Avatar;
     using Outgoing.Users;
 
     internal class RespectUserEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null)
             {

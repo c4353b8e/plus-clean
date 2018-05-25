@@ -1,16 +1,17 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Chat
 {
     using System;
-    using HabboHotel.GameClients;
-    using HabboHotel.Quests;
-    using HabboHotel.Rooms.Chat.Logs;
+    using Game.Moderation;
+    using Game.Players;
+    using Game.Quests;
+    using Game.Rooms.Chat.Logs;
     using Outgoing.Moderation;
     using Outgoing.Rooms.Chat;
     using Utilities;
 
     public class WhisperEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().InRoom)
             {
@@ -29,7 +30,7 @@
                 return;
             }
 
-            if (UnixTimestamp.GetNow() < session.GetHabbo().FloodTime && session.GetHabbo().FloodTime != 0)
+            if (UnixUtilities.GetNow() < session.GetHabbo().FloodTime && session.GetHabbo().FloodTime != 0)
             {
                 return;
             }
@@ -84,14 +85,14 @@
                 return;
             }
             
-            Program.GameContext.GetChatManager().GetLogs().StoreChatlog(new ChatlogEntry(session.GetHabbo().Id, room.Id, "<Whisper to " + toUser + ">: " + message, UnixTimestamp.GetNow(), session.GetHabbo(), room));
+            Program.GameContext.GetChatManager().GetLogs().StoreChatlog(new ChatlogEntry(session.GetHabbo().Id, room.Id, "<Whisper to " + toUser + ">: " + message, UnixUtilities.GetNow(), session.GetHabbo(), room));
 
             if (Program.GameContext.GetChatManager().GetFilter().CheckBannedWords(message))
             {
                 session.GetHabbo().BannedPhraseCount++;
                 if (session.GetHabbo().BannedPhraseCount >= Convert.ToInt32(Program.SettingsManager.TryGetValue("room.chat.filter.banned_phrases.chances")))
                 {
-                    Program.GameContext.GetModerationManager().BanUser("System", HabboHotel.Moderation.ModerationBanType.Username, session.GetHabbo().Username, "Spamming banned phrases (" + message + ")", UnixTimestamp.GetNow() + 78892200);
+                    Program.GameContext.GetModerationManager().BanUser("System", ModerationBanType.Username, session.GetHabbo().Username, "Spamming banned phrases (" + message + ")", UnixUtilities.GetNow() + 78892200);
                     session.Disconnect();
                     return;
                 }

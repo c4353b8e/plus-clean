@@ -1,14 +1,14 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Avatar
 {
     using System;
-    using HabboHotel.GameClients;
-    using HabboHotel.Quests;
+    using Game.Players;
+    using Game.Quests;
     using Outgoing.Rooms.Engine;
     using Utilities;
 
     internal class ChangeMottoEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session.GetHabbo().TimeMuted > 0)
             {
@@ -34,7 +34,7 @@
 
             session.GetHabbo().LastMottoUpdateTime = DateTime.Now;
 
-            var newMotto = StringCharFilter.Escape(packet.PopString().Trim());
+            var newMotto = StringUtilities.Escape(packet.PopString().Trim());
 
             if (newMotto.Length > 38)
             {

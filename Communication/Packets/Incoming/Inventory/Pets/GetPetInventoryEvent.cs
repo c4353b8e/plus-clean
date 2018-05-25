@@ -1,11 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Inventory.Pets
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Inventory.Pets;
 
     internal class GetPetInventoryEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session.GetHabbo().GetInventoryComponent() == null)
             {

@@ -1,6 +1,6 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Handshake
 {
-    using HabboHotel.Users;
+    using Game.Users;
 
     public class UserObjectComposer : ServerPacket
     {

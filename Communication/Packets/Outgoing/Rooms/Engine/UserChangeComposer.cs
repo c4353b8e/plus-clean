@@ -1,6 +1,6 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Rooms.Engine
 {
-    using HabboHotel.Rooms;
+    using Game.Rooms;
 
     internal class UserChangeComposer : ServerPacket
     {

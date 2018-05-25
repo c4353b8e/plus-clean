@@ -3,13 +3,13 @@
     using System;
     using System.Collections.Generic;
     using System.Data;
-    using HabboHotel.GameClients;
-    using HabboHotel.Rooms;
+    using Game.Players;
+    using Game.Rooms;
     using Outgoing.Moderation;
 
     internal class GetModeratorUserRoomVisitsEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().GetPermissions().HasRight("mod_tool"))
             {
@@ -17,7 +17,7 @@
             }
 
             var userId = packet.PopInt();
-            var target = Program.GameContext.GetClientManager().GetClientByUserId(userId);
+            var target = Program.GameContext.PlayerController.GetClientByUserId(userId);
             if (target == null)
             {
                 return;

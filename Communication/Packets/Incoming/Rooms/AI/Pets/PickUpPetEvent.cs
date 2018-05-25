@@ -1,13 +1,13 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.AI.Pets
 {
     using System.Drawing;
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Inventory.Pets;
     using Outgoing.Rooms.Engine;
 
     internal class PickUpPetEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().InRoom)
             {
@@ -94,7 +94,7 @@
 
             if (data.OwnerId != session.GetHabbo().Id)
             {
-                var target = Program.GameContext.GetClientManager().GetClientByUserId(data.OwnerId);
+                var target = Program.GameContext.PlayerController.GetClientByUserId(data.OwnerId);
                 if (target != null)
                 {
                     target.GetHabbo().GetInventoryComponent().TryAddPet(pet.PetData);

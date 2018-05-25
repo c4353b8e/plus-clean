@@ -1,13 +1,13 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Handshake
 {
     using Core.Logging;
-    using HabboHotel.GameClients;
+    using Game.Players;
 
     public class SsoTicketEvent : IPacketEvent
     {
         private static readonly ILogger Logger = new Logger<SsoTicketEvent>();
 
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || Program.EncryptionEnabled && session.Rc4Client == null || session.GetHabbo() != null)
             {

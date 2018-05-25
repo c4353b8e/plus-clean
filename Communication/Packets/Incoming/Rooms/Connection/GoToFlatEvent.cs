@@ -1,11 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Connection
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Rooms.Session;
 
     internal class GoToFlatEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().InRoom)
             {

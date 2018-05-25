@@ -3,8 +3,8 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using HabboHotel.Users;
-    using HabboHotel.Users.Messenger;
+    using Game.Users;
+    using Game.Users.Messenger;
 
     internal class BuddyListComposer : ServerPacket
     {

@@ -1,7 +1,7 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Inventory.Furni
 {
-    using HabboHotel.Catalog.Utilities;
-    using HabboHotel.Items;
+    using Game.Catalog.Utilities;
+    using Game.Items;
 
     internal class FurniListAddComposer : ServerPacket
     {

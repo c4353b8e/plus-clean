@@ -15,9 +15,9 @@
             WriteInteger(User != null ? Convert.ToInt32(User["id"]) : 0);
            WriteString(User != null ? Convert.ToString(User["username"]) : "Unknown");
            WriteString(User != null ? Convert.ToString(User["look"]) : "Unknown");
-            WriteInteger(User != null ? Convert.ToInt32(Math.Ceiling((UnixTimestamp.GetNow() - Convert.ToDouble(User["account_created"])) / 60)) : 0);
-            WriteInteger(User != null ? Convert.ToInt32(Math.Ceiling((UnixTimestamp.GetNow() - Convert.ToDouble(User["last_online"])) / 60)) : 0);
-            WriteBoolean(User != null ? Program.GameContext.GetClientManager().GetClientByUserId(Convert.ToInt32(User["id"])) != null : false);
+            WriteInteger(User != null ? Convert.ToInt32(Math.Ceiling((UnixUtilities.GetNow() - Convert.ToDouble(User["account_created"])) / 60)) : 0);
+            WriteInteger(User != null ? Convert.ToInt32(Math.Ceiling((UnixUtilities.GetNow() - Convert.ToDouble(User["last_online"])) / 60)) : 0);
+            WriteBoolean(User != null ? Program.GameContext.PlayerController.GetClientByUserId(Convert.ToInt32(User["id"])) != null : false);
             WriteInteger(Info != null ? Convert.ToInt32(Info["cfhs"]) : 0);
             WriteInteger(Info != null ? Convert.ToInt32(Info["cfhs_abusive"]) : 0);
             WriteInteger(Info != null ? Convert.ToInt32(Info["cautions"]) : 0);

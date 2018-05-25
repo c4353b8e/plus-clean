@@ -1,10 +1,10 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Action
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
 
     internal class KickUserEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var room = session.GetHabbo().CurrentRoom;
             if (room == null)

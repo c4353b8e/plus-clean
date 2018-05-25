@@ -3,9 +3,9 @@
     using System;
     using System.Collections.Generic;
     using Core.Logging;
-    using HabboHotel.GameClients;
-    using HabboHotel.Rooms.AI;
-    using HabboHotel.Rooms.AI.Speech;
+    using Game.Players;
+    using Game.Rooms.AI;
+    using Game.Rooms.AI.Speech;
     using Outgoing.Inventory.Pets;
     using Outgoing.Rooms.Notifications;
 
@@ -13,7 +13,7 @@
     {
         private static readonly ILogger Logger = new Logger<PlacePetEvent>();
 
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().InRoom)
             {

@@ -2,14 +2,14 @@
 {
     using System;
     using System.Collections.Generic;
-    using HabboHotel.GameClients;
-    using HabboHotel.Groups;
-    using HabboHotel.Users;
+    using Game.Groups;
+    using Game.Players;
+    using Game.Users;
     using Utilities;
 
     internal class ProfileInformationComposer : ServerPacket
     {
-        public ProfileInformationComposer(Habbo habbo, GameClient session, List<Group> groups, int friendCount)
+        public ProfileInformationComposer(Habbo habbo, Player session, List<Group> groups, int friendCount)
             : base(ServerPacketHeader.ProfileInformationMessageComposer)
         {
             var origin = new DateTime(1970, 1, 1, 0, 0, 0, 0).AddSeconds(habbo.AccountCreated);
@@ -23,7 +23,7 @@
             WriteInteger(friendCount); // Friend Count
             WriteBoolean(habbo.Id != session.GetHabbo().Id && session.GetHabbo().GetMessenger().FriendshipExists(habbo.Id)); //  Is friend
             WriteBoolean(habbo.Id != session.GetHabbo().Id && !session.GetHabbo().GetMessenger().FriendshipExists(habbo.Id) && session.GetHabbo().GetMessenger().RequestExists(habbo.Id)); // Sent friend request
-            WriteBoolean(Program.GameContext.GetClientManager().GetClientByUserId(habbo.Id) != null);
+            WriteBoolean(Program.GameContext.PlayerController.GetClientByUserId(habbo.Id) != null);
 
             WriteInteger(groups.Count);
             foreach (var group in groups)
@@ -38,7 +38,7 @@
                 WriteBoolean(group != null ? group.ForumEnabled : true);//HabboTalk
             }
 
-            WriteInteger(Convert.ToInt32(UnixTimestamp.GetNow() - habbo.LastOnline)); // Last online
+            WriteInteger(Convert.ToInt32(UnixUtilities.GetNow() - habbo.LastOnline)); // Last online
             WriteBoolean(true); // Show the profile
         }
     }

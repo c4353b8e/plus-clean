@@ -1,6 +1,6 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.GameCenter
 {
-    using HabboHotel.Games;
+    using Game.Games;
 
     internal class LoadGameComposer : ServerPacket
     {

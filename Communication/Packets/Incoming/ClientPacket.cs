@@ -77,7 +77,7 @@
 
         public byte[] ReadFixedValue()
         {
-            var len = HabboEncoding.DecodeInt16(ReadBytes(2));
+            var len = EncryptionUtilities.DecodeInt16(ReadBytes(2));
             return ReadBytes(len);
         }
 
@@ -100,7 +100,7 @@
 
             var data = PlainReadBytes(4);
 
-            var i = HabboEncoding.DecodeInt32(data);
+            var i = EncryptionUtilities.DecodeInt32(data);
 
             _pointer += 4;
 

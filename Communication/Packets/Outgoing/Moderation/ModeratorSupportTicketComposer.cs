@@ -1,7 +1,7 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Moderation
 {
     using System;
-    using HabboHotel.Moderation;
+    using Game.Moderation;
     using Utilities;
 
     internal class ModeratorSupportTicketComposer : ServerPacket
@@ -13,7 +13,7 @@
             WriteInteger(Ticket.GetStatus(Id)); // Tab ID
             WriteInteger(Ticket.Type); // Type
             WriteInteger(Ticket.Category); // Category 
-            WriteInteger(Convert.ToInt32((DateTime.Now - UnixTimestamp.FromUnixTimestamp(Ticket.Timestamp)).TotalMilliseconds)); // This should fix the overflow?
+            WriteInteger(Convert.ToInt32((DateTime.Now - UnixUtilities.FromUnixTimestamp(Ticket.Timestamp)).TotalMilliseconds)); // This should fix the overflow?
             WriteInteger(Ticket.Priority); // Priority
             WriteInteger(0);//??
             WriteInteger(Ticket.Sender == null ? 0 : Ticket.Sender.Id); // Sender ID

@@ -2,14 +2,14 @@
 {
     using System;
     using System.Linq;
-    using HabboHotel.GameClients;
-    using HabboHotel.Items;
+    using Game.Items;
+    using Game.Players;
     using Outgoing.Groups;
     using Outgoing.Rooms.Engine;
 
     internal class UpdateGroupColoursEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var groupId = packet.PopInt();
             var mainColour = packet.PopInt();

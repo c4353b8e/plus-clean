@@ -1,16 +1,16 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Engine
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Items;
-    using HabboHotel.Items.Wired;
-    using HabboHotel.Quests;
-    using HabboHotel.Rooms;
+    using Game.Items;
+    using Game.Items.Wired;
+    using Game.Players;
+    using Game.Quests;
+    using Game.Rooms;
     using Outgoing.Rooms.Engine;
     using Outgoing.Rooms.Furni;
 
     internal class UseFurnitureEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null || !session.GetHabbo().InRoom)
             {

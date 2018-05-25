@@ -1,6 +1,6 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Messenger
 {
-    using HabboHotel.Users.Messenger;
+    using Game.Users.Messenger;
 
     internal class FriendNotificationComposer : ServerPacket
     {

@@ -12,7 +12,7 @@
         {
             Program.GameContext.GetPermissionManager().Init();
 
-            foreach (var client in Program.GameContext.GetClientManager().GetClients.ToList())
+            foreach (var client in Program.GameContext.PlayerController.GetClients.ToList())
             {
                 if (client == null || client.GetHabbo() == null || client.GetHabbo().GetPermissions() == null)
                 {

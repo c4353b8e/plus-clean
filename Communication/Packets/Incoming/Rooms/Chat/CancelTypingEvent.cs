@@ -1,11 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Chat
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Rooms.Chat;
 
     public class CancelTypingEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().InRoom)
             {

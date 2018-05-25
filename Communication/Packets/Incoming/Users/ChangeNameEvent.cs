@@ -1,8 +1,8 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Users
 {
     using System.Linq;
-    using HabboHotel.GameClients;
-    using HabboHotel.Users;
+    using Game.Players;
+    using Game.Users;
     using Outgoing.Navigator;
     using Outgoing.Rooms.Engine;
     using Outgoing.Rooms.Session;
@@ -11,7 +11,7 @@
 
     internal class ChangeNameEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null)
             {
@@ -88,7 +88,7 @@
                 return;
             }
 
-            if (!Program.GameContext.GetClientManager().UpdateClientUsername(session, oldName, newName))
+            if (!Program.GameContext.PlayerController.UpdateClientUsername(session, oldName, newName))
             {
                 session.SendNotification("Oops! An issue occoured whilst updating your username.");
                 return;
@@ -106,7 +106,7 @@
 
             using (var dbClient = Program.DatabaseManager.GetQueryReactor())
             {
-                dbClient.SetQuery("INSERT INTO `logs_client_namechange` (`user_id`,`new_name`,`old_name`,`timestamp`) VALUES ('" + session.GetHabbo().Id + "', @name, '" + oldName + "', '" + UnixTimestamp.GetNow() + "')");
+                dbClient.SetQuery("INSERT INTO `logs_client_namechange` (`user_id`,`new_name`,`old_name`,`timestamp`) VALUES ('" + session.GetHabbo().Id + "', @name, '" + oldName + "', '" + UnixUtilities.GetNow() + "')");
                 dbClient.AddParameter("name", newName);
                 dbClient.RunQuery();
             }
@@ -136,12 +136,12 @@
                 return true;
             }
 
-            if (habbo.Rank == 1 && habbo.VIPRank == 1 && (habbo.LastNameChange == 0 || UnixTimestamp.GetNow() + 604800 > habbo.LastNameChange))
+            if (habbo.Rank == 1 && habbo.VIPRank == 1 && (habbo.LastNameChange == 0 || UnixUtilities.GetNow() + 604800 > habbo.LastNameChange))
             {
                 return true;
             }
 
-            if (habbo.Rank == 1 && habbo.VIPRank == 2 && (habbo.LastNameChange == 0 || UnixTimestamp.GetNow() + 86400 > habbo.LastNameChange))
+            if (habbo.Rank == 1 && habbo.VIPRank == 2 && (habbo.LastNameChange == 0 || UnixUtilities.GetNow() + 86400 > habbo.LastNameChange))
             {
                 return true;
             }

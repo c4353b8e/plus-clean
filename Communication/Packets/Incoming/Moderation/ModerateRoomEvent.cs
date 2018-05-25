@@ -1,14 +1,14 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Moderation
 {
     using System.Linq;
-    using HabboHotel.GameClients;
-    using HabboHotel.Rooms;
+    using Game.Players;
+    using Game.Rooms;
     using Outgoing.Navigator;
     using Outgoing.Rooms.Settings;
 
     internal class ModerateRoomEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().GetPermissions().HasRight("mod_tool"))
             {

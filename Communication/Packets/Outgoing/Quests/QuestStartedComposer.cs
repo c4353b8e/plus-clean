@@ -1,17 +1,17 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Quests
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Quests;
+    using Game.Players;
+    using Game.Quests;
 
     internal class QuestStartedComposer : ServerPacket
     {
-        public QuestStartedComposer(GameClient Session, Quest Quest)
+        public QuestStartedComposer(Player Session, Quest Quest)
             : base(ServerPacketHeader.QuestStartedMessageComposer)
         {
             SerializeQuest(this, Session, Quest, Quest.Category);
         }
 
-        private void SerializeQuest(ServerPacket Message, GameClient Session, Quest Quest, string Category)
+        private void SerializeQuest(ServerPacket Message, Player Session, Quest Quest, string Category)
         {
             if (Message == null || Session == null)
             {

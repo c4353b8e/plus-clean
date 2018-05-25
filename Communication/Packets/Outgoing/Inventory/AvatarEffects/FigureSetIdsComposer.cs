@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using HabboHotel.Users.Clothing.Parts;
+    using Game.Users.Clothing.Parts;
 
     internal class FigureSetIdsComposer : ServerPacket
     {

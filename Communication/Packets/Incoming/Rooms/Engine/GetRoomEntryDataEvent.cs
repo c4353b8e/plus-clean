@@ -1,14 +1,14 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Engine
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Items.Wired;
+    using Game.Items.Wired;
+    using Game.Players;
     using Outgoing.Rooms.Chat;
     using Outgoing.Rooms.Engine;
     using Utilities;
 
     internal class GetRoomEntryDataEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null)
             {
@@ -68,9 +68,9 @@
                 room.GetWired().TriggerEvent(WiredBoxType.TriggerRoomEnter, session.GetHabbo());
             }
 
-            if (UnixTimestamp.GetNow() < session.GetHabbo().FloodTime && session.GetHabbo().FloodTime != 0)
+            if (UnixUtilities.GetNow() < session.GetHabbo().FloodTime && session.GetHabbo().FloodTime != 0)
             {
-                session.SendPacket(new FloodControlComposer((int)session.GetHabbo().FloodTime - (int)UnixTimestamp.GetNow()));
+                session.SendPacket(new FloodControlComposer((int)session.GetHabbo().FloodTime - (int)UnixUtilities.GetNow()));
             }
         }
     }

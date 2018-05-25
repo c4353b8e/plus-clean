@@ -1,15 +1,15 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Groups
 {
     using System.Linq;
-    using HabboHotel.GameClients;
-    using HabboHotel.Groups;
+    using Game.Groups;
+    using Game.Players;
     using Outgoing.Catalog;
     using Outgoing.Groups;
     using Outgoing.Moderation;
 
     internal class JoinGroupEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null)
             {
@@ -37,7 +37,7 @@
 
             if (group.Type == GroupType.Locked)
             {
-                var groupAdmins = (from client in Program.GameContext.GetClientManager().GetClients.ToList() where client != null && client.GetHabbo() != null && @group.IsAdmin(client.GetHabbo().Id) select client).ToList();
+                var groupAdmins = (from client in Program.GameContext.PlayerController.GetClients.ToList() where client != null && client.GetHabbo() != null && @group.IsAdmin(client.GetHabbo().Id) select client).ToList();
                 foreach (var client in groupAdmins)
                 {
                     client.SendPacket(new GroupMembershipRequestedComposer(group.Id, session.GetHabbo(), 3));

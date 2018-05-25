@@ -2,8 +2,8 @@
 {
     using System;
     using System.Linq;
-    using HabboHotel.GameClients;
-    using HabboHotel.Quests;
+    using Game.Players;
+    using Game.Quests;
     using Outgoing.Moderation;
     using Outgoing.Rooms.Avatar;
     using Outgoing.Rooms.Engine;
@@ -11,7 +11,7 @@
 
     internal class UpdateFigureDataEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null)
             {

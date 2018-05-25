@@ -1,6 +1,6 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Inventory.AvatarEffects
 {
-    using HabboHotel.Users.Effects;
+    using Game.Users.Effects;
 
     internal class AvatarEffectActivatedComposer : ServerPacket
     {

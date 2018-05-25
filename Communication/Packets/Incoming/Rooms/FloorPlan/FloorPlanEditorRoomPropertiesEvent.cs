@@ -1,12 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.FloorPlan
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Rooms.Engine;
     using Outgoing.Rooms.FloorPlan;
 
     internal class FloorPlanEditorRoomPropertiesEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().InRoom)
             {

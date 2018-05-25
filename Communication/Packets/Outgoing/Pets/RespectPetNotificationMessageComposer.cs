@@ -1,8 +1,8 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Pets
 {
-    using HabboHotel.Rooms;
-    using HabboHotel.Rooms.AI;
-    using HabboHotel.Users;
+    using Game.Rooms;
+    using Game.Rooms.AI;
+    using Game.Users;
 
     internal class RespectPetNotificationMessageComposer : ServerPacket
     {

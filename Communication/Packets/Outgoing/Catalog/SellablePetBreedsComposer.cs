@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using HabboHotel.Catalog.Pets;
+    using Game.Catalog.Pets;
 
     public class SellablePetBreedsComposer : ServerPacket
     {

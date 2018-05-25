@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using HabboHotel.Navigator;
+    using Game.Navigator;
 
     internal class NavigatorFlatCatsComposer : ServerPacket
     {

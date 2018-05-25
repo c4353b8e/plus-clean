@@ -1,12 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Catalog
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Catalog;
     using Utilities;
 
     public class CheckPetNameEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var petName = packet.PopString();
 

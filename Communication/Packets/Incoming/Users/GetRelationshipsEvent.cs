@@ -2,13 +2,13 @@
 {
     using System;
     using System.Linq;
-    using HabboHotel.GameClients;
-    using HabboHotel.Users.Authenticator;
+    using Game.Players;
+    using Game.Users.Authenticator;
     using Outgoing.Users;
 
     internal class GetRelationshipsEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var habbo = HabboFactory.GetHabboById(packet.PopInt());
             if (habbo == null)

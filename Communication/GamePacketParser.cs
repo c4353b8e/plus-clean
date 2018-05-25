@@ -4,7 +4,7 @@
     using System.IO;
     using ConnectionManager;
     using Core.Logging;
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Packets.Incoming;
     using Utilities;
 
@@ -14,13 +14,13 @@
 
         public delegate void HandlePacket(ClientPacket message);
 
-        private readonly GameClient _client;
+        private readonly Player _client;
 
         private bool _halfDataRecieved;
         private byte[] _halfData;
         private bool _deciphered;
 
-        public GamePacketParser(GameClient client)
+        public GamePacketParser(Player client)
         {
             _client = client;
         }
@@ -53,7 +53,7 @@
                         return;
                     }
 
-                    var msgLen = HabboEncoding.DecodeInt32(reader.ReadBytes(4));
+                    var msgLen = EncryptionUtilities.DecodeInt32(reader.ReadBytes(4));
                     if (reader.BaseStream.Length - 4 < msgLen)
                     {
                         _halfData = data;
@@ -70,7 +70,7 @@
 
                     using (var r = new BinaryReader(new MemoryStream(packet)))
                     {
-                        var header = HabboEncoding.DecodeInt16(r.ReadBytes(2));
+                        var header = EncryptionUtilities.DecodeInt16(r.ReadBytes(2));
 
                         var content = new byte[packet.Length - 2];
                         Buffer.BlockCopy(packet, 2, content, 0, packet.Length - 2);

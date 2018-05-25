@@ -1,9 +1,9 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Catalog
 {
     using System.Linq;
-    using HabboHotel.Catalog;
-    using HabboHotel.Catalog.Utilities;
-    using HabboHotel.Items;
+    using Game.Catalog;
+    using Game.Catalog.Utilities;
+    using Game.Items;
 
     public class CatalogPageComposer : ServerPacket
     {

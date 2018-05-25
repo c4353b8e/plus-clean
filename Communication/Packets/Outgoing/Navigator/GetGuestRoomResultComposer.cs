@@ -1,11 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Navigator
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Rooms;
+    using Game.Players;
+    using Game.Rooms;
 
     internal class GetGuestRoomResultComposer : ServerPacket
     {
-        public GetGuestRoomResultComposer(GameClient session, RoomData data, bool isLoading, bool checkEntry)
+        public GetGuestRoomResultComposer(Player session, RoomData data, bool isLoading, bool checkEntry)
             : base(ServerPacketHeader.GetGuestRoomResultMessageComposer)
         {
             WriteBoolean(isLoading);

@@ -2,13 +2,13 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using HabboHotel.Cache.Type;
-    using HabboHotel.GameClients;
+    using Game.Cache.Type;
+    using Game.Players;
     using Outgoing.Groups;
 
     internal class GetGroupMembersEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var groupId = packet.PopInt();
             var page = packet.PopInt();

@@ -20,7 +20,7 @@
         private void OnConnectionEvent(ConnectionInformation connection)
         {
             connection.ConnectionChanged += OnConnectionChanged;
-            Program.GameContext.GetClientManager().CreateAndStartClient(Convert.ToInt32(connection.GetConnectionId()), connection);
+            Program.GameContext.PlayerController.CreateAndStartClient(Convert.ToInt32(connection.GetConnectionId()), connection);
         }
 
         private void OnConnectionChanged(ConnectionInformation information, ConnectionState state)
@@ -36,7 +36,7 @@
             try
             {
                 connection.Dispose();
-                Program.GameContext.GetClientManager().DisposeConnection(Convert.ToInt32( connection.GetConnectionId()));
+                Program.GameContext.PlayerController.DisposeConnection(Convert.ToInt32( connection.GetConnectionId()));
             }
             catch (Exception e)
             {

@@ -1,7 +1,7 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Users
 {
     using System.Collections.Generic;
-    using HabboHotel.Groups;
+    using Game.Groups;
 
     internal class HabboGroupBadgesComposer : ServerPacket
     {

@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using HabboHotel.Items.Wired;
+    using Game.Items.Wired;
 
     internal class WiredTriggeRconfigComposer : ServerPacket
     {

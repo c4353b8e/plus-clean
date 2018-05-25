@@ -1,13 +1,13 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Groups
 {
     using System.Linq;
-    using HabboHotel.GameClients;
-    using HabboHotel.Rooms;
+    using Game.Players;
+    using Game.Rooms;
     using Outgoing.Groups;
 
     internal class GetGroupCreationWindowEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null)
             {

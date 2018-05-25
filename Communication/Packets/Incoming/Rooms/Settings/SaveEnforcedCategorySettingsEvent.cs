@@ -1,11 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Settings
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Navigator;
+    using Game.Navigator;
+    using Game.Players;
 
     internal class SaveEnforcedCategorySettingsEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!Program.GameContext.GetRoomManager().TryGetRoom(packet.PopInt(), out var room))
             {

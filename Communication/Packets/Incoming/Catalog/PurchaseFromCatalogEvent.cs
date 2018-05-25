@@ -5,10 +5,10 @@
     using System.Globalization;
     using System.Linq;
     using Core.Logging;
-    using HabboHotel.Catalog.Utilities;
-    using HabboHotel.GameClients;
-    using HabboHotel.Items;
-    using HabboHotel.Users.Effects;
+    using Game.Catalog.Utilities;
+    using Game.Items;
+    using Game.Players;
+    using Game.Users.Effects;
     using Outgoing.Catalog;
     using Outgoing.Inventory.AvatarEffects;
     using Outgoing.Inventory.Bots;
@@ -21,7 +21,7 @@
     {
         private static readonly ILogger Logger = new Logger<PurchaseFromCatalogEvent>();
 
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (Program.SettingsManager.TryGetValue("catalog.enabled") != "1")
             {

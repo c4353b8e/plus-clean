@@ -2,13 +2,13 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using HabboHotel.GameClients;
-    using HabboHotel.Navigator;
+    using Game.Navigator;
+    using Game.Players;
 
     internal class NavigatorSearchResultSetComposer : ServerPacket
     {
         public NavigatorSearchResultSetComposer(string category, string data,
-            ICollection<SearchResultList> searchResultLists, GameClient session, int goBack = 1, int fetchLimit = 12)
+            ICollection<SearchResultList> searchResultLists, Player session, int goBack = 1, int fetchLimit = 12)
             : base(ServerPacketHeader.NavigatorSearchResultSetMessageComposer)
         {
             WriteString(category); //Search code.

@@ -3,15 +3,15 @@
     using System;
     using System.Data;
     using System.Threading;
-    using HabboHotel.GameClients;
-    using HabboHotel.Items;
-    using HabboHotel.Rooms;
+    using Game.Items;
+    using Game.Players;
+    using Game.Rooms;
     using Outgoing.Rooms.Engine;
     using Outgoing.Rooms.Furni;
 
     internal class OpenGiftEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null || !session.GetHabbo().InRoom)
             {
@@ -115,7 +115,7 @@
 
         }
 
-        private void FinishOpenGift(GameClient session, ItemData baseItem, Item present, Room room, DataRow row)
+        private void FinishOpenGift(Player session, ItemData baseItem, Item present, Room room, DataRow row)
         {
             try
             {

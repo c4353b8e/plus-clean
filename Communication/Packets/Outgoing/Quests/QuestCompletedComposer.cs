@@ -1,11 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Quests
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Quests;
+    using Game.Players;
+    using Game.Quests;
 
     internal class QuestCompletedComposer : ServerPacket
     {
-        public QuestCompletedComposer(GameClient Session, Quest Quest)
+        public QuestCompletedComposer(Player Session, Quest Quest)
             : base(ServerPacketHeader.QuestCompletedMessageComposer)
         {
             var AmountInCat = Program.GameContext.GetQuestManager().GetAmountOfQuestsInCategory(Quest.Category);

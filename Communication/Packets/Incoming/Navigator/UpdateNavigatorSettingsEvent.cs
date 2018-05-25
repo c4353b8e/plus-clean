@@ -1,12 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Navigator
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Rooms;
+    using Game.Players;
+    using Game.Rooms;
     using Outgoing.Navigator;
 
     internal class UpdateNavigatorSettingsEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var roomId = packet.PopInt();
             if (roomId == 0)

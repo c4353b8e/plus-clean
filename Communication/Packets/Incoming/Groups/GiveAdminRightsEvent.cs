@@ -1,13 +1,13 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Groups
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Users.Authenticator;
+    using Game.Players;
+    using Game.Users.Authenticator;
     using Outgoing.Groups;
     using Outgoing.Rooms.Permissions;
 
     internal class GiveAdminRightsEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var groupId = packet.PopInt();
             var userId = packet.PopInt();

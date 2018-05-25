@@ -1,8 +1,8 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Groups
 {
     using System.Collections.Generic;
-    using HabboHotel.Cache.Type;
-    using HabboHotel.Groups;
+    using Game.Cache.Type;
+    using Game.Groups;
 
     internal class GroupMembersComposer : ServerPacket
     {

@@ -47,7 +47,7 @@
                 }
 
                 var bytes = new byte[BITLENGTH / 8];
-                Randomizer.NextBytes(bytes);
+                EncryptionUtilities.NextBytes(bytes);
                 PrivateKey = new BigInteger(bytes);
 
                 if (Generator > Prime)

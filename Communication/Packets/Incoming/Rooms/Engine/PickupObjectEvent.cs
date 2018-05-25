@@ -1,12 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Engine
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Items;
-    using HabboHotel.Quests;
+    using Game.Items;
+    using Game.Players;
+    using Game.Quests;
 
     internal class PickupObjectEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
 
             if (!session.GetHabbo().InRoom)
@@ -86,7 +86,7 @@
                 }
                 else//Item is being ejected.
                 {
-                    var targetClient = Program.GameContext.GetClientManager().GetClientByUserId(item.UserID);
+                    var targetClient = Program.GameContext.PlayerController.GetClientByUserId(item.UserID);
                     if (targetClient != null && targetClient.GetHabbo() != null)//Again, do we have an active client?
                     {
                         room.GetRoomItemHandler().RemoveFurniture(targetClient, item.Id);

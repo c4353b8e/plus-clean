@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using HabboHotel.Items;
+    using Game.Items;
 
     internal class FloorPlanFloorMapComposer : ServerPacket
     {

@@ -3,16 +3,16 @@
     using System;
     using System.Collections.Generic;
     using System.Data;
-    using HabboHotel.GameClients;
-    using HabboHotel.Rooms;
-    using HabboHotel.Rooms.Chat.Logs;
-    using HabboHotel.Users.Authenticator;
+    using Game.Players;
+    using Game.Rooms;
+    using Game.Rooms.Chat.Logs;
+    using Game.Users.Authenticator;
     using Outgoing.Moderation;
     using Utilities;
 
     internal class GetModeratorUserChatlogEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null)
             {
@@ -48,7 +48,7 @@
                             continue;
                         }
 
-                        var timestampExit = Convert.ToDouble(row["exit_timestamp"]) <= 0 ? UnixTimestamp.GetNow() : Convert.ToDouble(row["exit_timestamp"]);
+                        var timestampExit = Convert.ToDouble(row["exit_timestamp"]) <= 0 ? UnixUtilities.GetNow() : Convert.ToDouble(row["exit_timestamp"]);
 
                         chatlogs.Add(new KeyValuePair<RoomData, List<ChatlogEntry>>(roomData, GetChatlogs(roomData, Convert.ToDouble(row["entry_timestamp"]), timestampExit)));
                     }

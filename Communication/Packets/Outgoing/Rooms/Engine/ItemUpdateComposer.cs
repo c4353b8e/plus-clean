@@ -1,6 +1,6 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Rooms.Engine
 {
-    using HabboHotel.Items;
+    using Game.Items;
 
     internal class ItemUpdateComposer : ServerPacket
     {

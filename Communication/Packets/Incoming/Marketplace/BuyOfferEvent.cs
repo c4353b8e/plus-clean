@@ -4,16 +4,16 @@
     using System.Collections.Generic;
     using System.Data;
     using System.Text;
-    using HabboHotel.Catalog.Marketplace;
-    using HabboHotel.GameClients;
-    using HabboHotel.Items;
+    using Game.Catalog.Marketplace;
+    using Game.Items;
+    using Game.Players;
     using Outgoing.Inventory.Furni;
     using Outgoing.Inventory.Purse;
     using Outgoing.Marketplace;
 
     internal class BuyOfferEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var offerId = packet.PopInt();
 
@@ -125,7 +125,7 @@
         }
 
 
-        private void ReloadOffers(GameClient session)
+        private void ReloadOffers(Player session)
         {
             var minCost = -1;
             var maxCost = -1;

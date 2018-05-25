@@ -1,10 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.GameCenter
 {
-    using HabboHotel.Games;
+    using Game.Games;
+    using Game.Players;
 
     internal class Game2GetWeeklyLeaderboardEvent : IPacketEvent
     {
-        public void Parse(HabboHotel.GameClients.GameClient Session, ClientPacket Packet)
+        public void Parse(Player Session, ClientPacket Packet)
         {
             var GameId = Packet.PopInt();
 

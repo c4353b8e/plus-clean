@@ -1,11 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Quests
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Quests;
 
     internal class StartQuestEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var questId = packet.PopInt();
 

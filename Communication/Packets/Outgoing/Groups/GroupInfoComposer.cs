@@ -1,13 +1,13 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Groups
 {
     using System;
-    using HabboHotel.GameClients;
-    using HabboHotel.Groups;
-    using HabboHotel.Users.Authenticator;
+    using Game.Groups;
+    using Game.Players;
+    using Game.Users.Authenticator;
 
     internal class GroupInfoComposer : ServerPacket
     {
-        public GroupInfoComposer(Group Group, GameClient Session, bool NewWindow = false)
+        public GroupInfoComposer(Group Group, Player Session, bool NewWindow = false)
             : base(ServerPacketHeader.GroupInfoMessageComposer)
         {
             var Origin = new DateTime(1970, 1, 1, 0, 0, 0, 0).AddSeconds(Group.CreateTime);

@@ -1,8 +1,8 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.AI.Pets.Horse
 {
-    using HabboHotel.Catalog.Utilities;
-    using HabboHotel.GameClients;
-    using HabboHotel.Items;
+    using Game.Catalog.Utilities;
+    using Game.Items;
+    using Game.Players;
     using Outgoing.Catalog;
     using Outgoing.Inventory.Furni;
     using Outgoing.Rooms.AI.Pets;
@@ -10,7 +10,7 @@
 
     internal class RemoveSaddleFromHorseEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().InRoom)
             {

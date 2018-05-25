@@ -2,8 +2,8 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using HabboHotel.Games;
-    using HabboHotel.Users;
+    using Game.Games;
+    using Game.Users;
 
     public class Game3WeeklyLeaderboardComposer : ServerPacket
     {

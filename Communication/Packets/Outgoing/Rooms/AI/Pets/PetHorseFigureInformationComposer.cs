@@ -1,6 +1,6 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Rooms.AI.Pets
 {
-    using HabboHotel.Rooms;
+    using Game.Rooms;
 
     internal class PetHorseFigureInformationComposer : ServerPacket
     {

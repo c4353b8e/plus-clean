@@ -1,11 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Quests
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Quests;
 
     internal class CancelQuestEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var quest = Program.GameContext.GetQuestManager().GetQuest(session.GetHabbo().GetStats().QuestId);
             if (quest == null)

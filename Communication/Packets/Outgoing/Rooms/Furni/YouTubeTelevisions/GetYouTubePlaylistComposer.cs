@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using HabboHotel.Items.Televisions;
+    using Game.Items.Televisions;
 
     internal class GetYouTubePlaylistComposer : ServerPacket
     {

@@ -1,6 +1,6 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Rooms.Avatar
 {
-    using HabboHotel.Rooms;
+    using Game.Rooms;
 
     internal class DanceComposer : ServerPacket
     {

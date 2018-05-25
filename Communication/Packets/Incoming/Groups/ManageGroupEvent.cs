@@ -1,11 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Groups
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Groups;
 
     internal class ManageGroupEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var groupId = packet.PopInt();
 

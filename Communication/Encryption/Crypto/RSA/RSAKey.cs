@@ -135,7 +135,7 @@
                 switch (type)
                 {
                     case Pkcs1PadType.FullByte: x = 0xFF; break;
-                    case Pkcs1PadType.RandomByte: x = Randomizer.NextByte(1, 255); break;
+                    case Pkcs1PadType.RandomByte: x = EncryptionUtilities.NextByte(1, 255); break;
                 }
                 bytes[--n] = x;
             }

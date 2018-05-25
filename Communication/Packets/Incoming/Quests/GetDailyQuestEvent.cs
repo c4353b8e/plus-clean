@@ -1,13 +1,13 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Quests
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.LandingView;
 
     internal class GetDailyQuestEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
-            var usersOnline = Program.GameContext.GetClientManager().Count;
+            var usersOnline = Program.GameContext.PlayerController.Count;
 
             session.SendPacket(new ConcurrentUsersGoalProgressComposer(usersOnline));
         }

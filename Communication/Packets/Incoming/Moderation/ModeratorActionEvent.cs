@@ -1,10 +1,11 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Moderation
 {
+    using Game.Players;
     using Outgoing.Moderation;
 
     internal class ModeratorActionEvent : IPacketEvent
     {
-        public void Parse(HabboHotel.GameClients.GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().GetPermissions().HasRight("mod_caution"))
             {

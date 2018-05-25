@@ -1,6 +1,6 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Moderation
 {
-    using HabboHotel.Rooms;
+    using Game.Rooms;
 
     internal class ModeratorRoomInfoComposer : ServerPacket
     {

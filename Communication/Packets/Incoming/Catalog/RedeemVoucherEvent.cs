@@ -1,14 +1,14 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Catalog
 {
     using System.Data;
-    using HabboHotel.Catalog.Vouchers;
-    using HabboHotel.GameClients;
+    using Game.Catalog.Vouchers;
+    using Game.Players;
     using Outgoing.Catalog;
     using Outgoing.Inventory.Purse;
 
     public class RedeemVoucherEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var code = packet.PopString().Replace("\r", "");
 

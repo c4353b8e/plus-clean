@@ -1,12 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Groups
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
     using Outgoing.Groups;
     using Outgoing.Users;
 
     internal class SetGroupFavouriteEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null)
             {

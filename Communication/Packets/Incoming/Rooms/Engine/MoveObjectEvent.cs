@@ -1,13 +1,13 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.Engine
 {
-    using HabboHotel.GameClients;
-    using HabboHotel.Items;
-    using HabboHotel.Quests;
+    using Game.Items;
+    using Game.Players;
+    using Game.Quests;
     using Outgoing.Rooms.Engine;
 
     internal class MoveObjectEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().InRoom)
             {

@@ -2,11 +2,12 @@
 {
     using System;
     using System.Drawing;
+    using Game.Players;
     using Outgoing.Rooms.AI.Pets;
 
     internal class RideHorseEvent : IPacketEvent
     {
-        public void Parse(HabboHotel.GameClients.GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().InRoom)
             {

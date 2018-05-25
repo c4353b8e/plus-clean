@@ -1,13 +1,13 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Rooms.AI.Bots
 {
     using System;
-    using HabboHotel.GameClients;
-    using HabboHotel.Users.Inventory.Bots;
+    using Game.Players;
+    using Game.Users.Inventory.Bots;
     using Outgoing.Inventory.Bots;
 
     internal class PickUpBotEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (!session.GetHabbo().InRoom)
             {

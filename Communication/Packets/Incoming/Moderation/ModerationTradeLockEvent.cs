@@ -1,11 +1,12 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Moderation
 {
-    using HabboHotel.Users.Authenticator;
+    using Game.Players;
+    using Game.Users.Authenticator;
     using Utilities;
 
     internal class ModerationTradeLockEvent : IPacketEvent
     {
-        public void Parse(HabboHotel.GameClients.GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             if (session == null || session.GetHabbo() == null || !session.GetHabbo().GetPermissions().HasRight("mod_trade_lock"))
             {
@@ -18,7 +19,7 @@
             packet.PopString(); //unk1
             packet.PopString(); //unk2
 
-            var length = UnixTimestamp.GetNow() + days * 86400;
+            var length = UnixUtilities.GetNow() + days * 86400;
 
             var habbo = HabboFactory.GetHabboById(userId);
             if (habbo == null)

@@ -1,7 +1,7 @@
 ﻿namespace Plus.Communication.Packets.Outgoing.Catalog
 {
     using System.Collections.Generic;
-    using HabboHotel.Rooms;
+    using Game.Rooms;
 
     internal class PromotableRoomsComposer : ServerPacket
     {

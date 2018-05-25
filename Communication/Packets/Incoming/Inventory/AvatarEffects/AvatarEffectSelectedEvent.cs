@@ -1,10 +1,10 @@
 ﻿namespace Plus.Communication.Packets.Incoming.Inventory.AvatarEffects
 {
-    using HabboHotel.GameClients;
+    using Game.Players;
 
     internal class AvatarEffectSelectedEvent : IPacketEvent
     {
-        public void Parse(GameClient session, ClientPacket packet)
+        public void Parse(Player session, ClientPacket packet)
         {
             var effectId = packet.PopInt();
             if (effectId < 0)

@@ -25,7 +25,7 @@
                     WriteInteger(table.Rows.Count);
                     foreach (DataRow row in table.Rows)
                     {
-                        var num2 = Convert.ToInt32(Math.Floor(((double)row["timestamp"] + 172800.0 - UnixTimestamp.GetNow()) / 60.0));
+                        var num2 = Convert.ToInt32(Math.Floor(((double)row["timestamp"] + 172800.0 - UnixUtilities.GetNow()) / 60.0));
                         var num3 = int.Parse(row["state"].ToString());
                         if (num2 <= 0 && num3 != 2)
                         {
